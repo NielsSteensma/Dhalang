@@ -9,9 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Niels Steensma"]
   spec.email         = ["nielssteensma@yahoo.nl"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Ruby wrapper for Puppeteer. Generate screenshots and PDF's from HTML!"
+  spec.homepage      = "https://github.com/NielsSteensma/Dhalang"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
