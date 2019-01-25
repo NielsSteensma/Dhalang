@@ -1,4 +1,9 @@
 language: ruby
 rvm:
  - 2.2
+addons:
+  chrome: stable
+install:
+ - bundle install
+ - npm install
 script: bundle exec rake spec
