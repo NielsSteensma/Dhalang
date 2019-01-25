@@ -1,5 +1,6 @@
 require "Dhalang/version"
 require 'uri'
+require 'tempfile'
 
 class DhalangPDF
 
