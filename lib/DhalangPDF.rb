@@ -3,14 +3,13 @@ require 'uri'
 require 'tempfile'
 
 class DhalangPDF
-  HTML_TO_PDF_JS_PATH = File.expand_path('../js/pdfgeneration_fromhtml.js', __FILE__)
-  URL_TO_PDF_JS_PATH = File.expand_path('../js/pdfgeneration_fromurl.js', __FILE__)
-
+  PDF_GENERATOR_JS_PATH = File.expand_path('../js/pdfgenerator.js', __FILE__)
+  PROJECT_PATH = File.expand_path('../', __FILE__)
 
   def self.get_from_url(url)
     validate_url(url)
     temp_file = Tempfile.new("pdf")
-    system("node #{URL_TO_PDF_JS_PATH} #{Shellwords.escape("http://www.google.com")} #{Shellwords.escape(temp_file.path)}")
+    system("node #{PDF_GENERATOR_JS_PATH} #{url} #{Shellwords.escape(temp_file.path)} #{Shellwords.escape(PROJECT_PATH)}")
     temp_file
   end
 
@@ -20,8 +19,7 @@ class DhalangPDF
     begin
       html_file.write(html)
       html_file.rewind
-      puts HTML_TO_PDF_JS_PATH
-      system("node #{HTML_TO_PDF_JS_PATH} #{"file://" + html_file.path} #{Shellwords.escape(temp_file.path)}")
+      system("node #{PDF_GENERATOR_JS_PATH} #{"file://" + html_file.path} #{Shellwords.escape(temp_file.path)} #{Shellwords.escape(PROJECT_PATH)}")
     ensure
       html_file.close
       html_file.unlink
