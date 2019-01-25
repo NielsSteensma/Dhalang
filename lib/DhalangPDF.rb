@@ -4,7 +4,7 @@ require 'tempfile'
 
 class DhalangPDF
   PDF_GENERATOR_JS_PATH = File.expand_path('../js/pdfgenerator.js', __FILE__)
-  PROJECT_PATH = File.expand_path('../', __FILE__)
+  PROJECT_PATH = Dir.pwd + '/node_modules/'
 
   def self.get_from_url(url)
     validate_url(url)
