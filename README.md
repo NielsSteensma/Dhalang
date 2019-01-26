@@ -8,6 +8,9 @@
 * Generate PDFs from pages
 * Generate PDFs from html ( external images/stylesheets supported )
 
+## Prerequisites
+NodeJS >= v7.6.0 
+
 ## Installation
 Add this line to your application's Gemfile:
 
