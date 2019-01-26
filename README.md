@@ -1,6 +1,25 @@
-# Dhalang
-[![Build Status](https://travis-ci.com/NielsSteensma/Dhalang.svg?token=XZgKAByw2KZjcrsCh8gW&branch=master)](https://travis-ci.com/NielsSteensma/Dhalang)
+# Dhalang [![Build Status](https://travis-ci.com/NielsSteensma/Dhalang.svg?token=XZgKAByw2KZjcrsCh8gW&branch=master)](https://travis-ci.com/NielsSteensma/Dhalang)
 
+> Dhalang is a Ruby wrapper for Google's Puppeteer.
+
+
+## Features
+* Generate screenshots from pages.
+* Generate PDFs from pages
+* Generate PDFs from html ( external images/stylesheets supported )
+
+## Installation
+Add this line to your application's Gemfile:
+
+    gem 'dhalang'
+
+And then execute:
+
+    $ bundle update
+
+Install puppeteer in your application's root directory:
+
+    $ npm install puppeteer
 
 ## Usage
 __Get a PDF of a website url__  
