@@ -23,8 +23,7 @@ class DhalangPDF
     html_file = create_temporary_html_file(html)
     temporary_pdf_save_file = create_temporary_pdf_file
     begin
-      test = "file://" + html_file.path
-      visit_page_with_puppeteer(test, temporary_pdf_save_file.path)
+      visit_page_with_puppeteer("file://" + html_file.path, temporary_pdf_save_file.path)
       binary_pdf_content = get_file_content_as_binary_string(temporary_pdf_save_file)
     ensure
       temporary_pdf_save_file.close unless temporary_pdf_save_file.closed?
