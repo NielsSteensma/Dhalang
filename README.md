@@ -12,7 +12,7 @@ More will come.
 ## Installation
 Add this line to your application's Gemfile:
 
-    gem 'dhalang'
+    gem 'Dhalang'
 
 And then execute:
 
