@@ -33,7 +33,7 @@ __Get a PDF of a HTML string__
 
 Both methods return a string containing the PDF in binary.   
   
-When you for example want to return the PDF from a Rails API you can do the following in a controller:  
+To return the PDF from a Rails controller you can do the following:  
 ```
 def example_controller_method  
     binary_pdf = Dhalang::PDF.get_from_url("https://www.google.com")  
