@@ -1,5 +1,5 @@
 require 'rspec'
-require 'PDF'
+require 'Dhalang'
 require 'pdf/reader'
 
 # Method: DhalangPDF.get_from_url
