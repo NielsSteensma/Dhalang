@@ -6,7 +6,7 @@
 ## Features
 * Generate PDFs from pages
 * Generate PDFs from html ( external images/stylesheets supported )  
-* Capture a screenshots of a webpage
+* Capture a screenshot of a webpage
 
 ## Installation
 Add this line to your application's Gemfile:
