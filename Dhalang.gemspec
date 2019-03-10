@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Dhalang::VERSION
   spec.authors       = ["Niels Steensma"]
   spec.email         = ["nielssteensma@yahoo.nl"]
+  spec.licenses      = ['MIT']
 
   spec.summary       = "Ruby wrapper for Puppeteer. Generate screenshots and PDF's from HTML!"
   spec.homepage      = "https://github.com/NielsSteensma/Dhalang"
@@ -34,4 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pdf-reader", "~> 2.2"
+  spec.add_development_dependency "fastimage", "~> 1.8"
 end
