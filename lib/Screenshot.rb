@@ -4,7 +4,7 @@ require 'tempfile'
 
 module Dhalang
   class Screenshot
-    PDF_GENERATOR_JS_PATH = File.expand_path('../js/pdfgenerator.js', __FILE__)
+    SCREENSHOT_GENERATOR_JS_PATH = File.expand_path('../js/screenshotgenerator.js', __FILE__)
     PROJECT_PATH = Dir.pwd + '/node_modules/'
 
     def self.get_from_url_as_png(url)
@@ -31,7 +31,7 @@ module Dhalang
       Tempfile.new("png")
     end
     def self.visit_page_with_puppeteer(page_to_visit, path_to_save_pdf_to)
-      system("node #{PDF_GENERATOR_JS_PATH} #{page_to_visit} #{Shellwords.escape(path_to_save_pdf_to)} #{Shellwords.escape(PROJECT_PATH)}")
+      system("node #{SCREENSHOT_GENERATOR_JS_PATH} #{page_to_visit} #{Shellwords.escape(path_to_save_pdf_to)} #{Shellwords.escape(PROJECT_PATH)}")
     end
 
     def self.get_file_content_as_binary_string(file)
