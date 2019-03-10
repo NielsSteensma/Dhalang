@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Dhalang::VERSION
   spec.authors       = ["Niels Steensma"]
   spec.email         = ["nielssteensma@yahoo.nl"]
+  spec.licenses      = ['MIT']
 
   spec.summary       = "Ruby wrapper for Puppeteer. Generate screenshots and PDF's from HTML!"
   spec.homepage      = "https://github.com/NielsSteensma/Dhalang"
