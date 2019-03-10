@@ -54,7 +54,7 @@ describe '#get_from_url_as_jpeg' do
       expect(File.zero?(create_image_file(jpeg_binary_content))).to be false
     end
 
-    it 'should return an image of type png' do
+    it 'should return an image of type jpeg' do
       jpeg_binary_content = Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com")
       file_path = create_image_file(jpeg_binary_content).path
       expect(FastImage.type(file_path)).to be(:jpeg)
