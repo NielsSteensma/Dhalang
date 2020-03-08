@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Dhalang (0.1.0)
+    Dhalang (0.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -13,28 +13,28 @@ GEM
     fastimage (1.9.0)
       addressable (~> 2.3.5)
     hashery (2.1.2)
-    pdf-reader (2.2.0)
+    pdf-reader (2.4.0)
       Ascii85 (~> 1.0.0)
       afm (~> 0.2.1)
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    rake (10.5.0)
-    rspec (3.8.0)
-      rspec-core (~> 3.8.0)
-      rspec-expectations (~> 3.8.0)
-      rspec-mocks (~> 3.8.0)
-    rspec-core (3.8.0)
-      rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.2)
+    rake (13.0.1)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.1)
+      rspec-support (~> 3.9.1)
+    rspec-expectations (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.8.0)
-    rspec-mocks (3.8.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.8.0)
-    rspec-support (3.8.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.2)
     ruby-rc4 (0.1.5)
-    ttfunk (1.5.1)
+    ttfunk (1.6.2.1)
 
 PLATFORMS
   x64-mingw32
@@ -44,7 +44,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   fastimage (~> 1.8)
   pdf-reader (~> 2.2)
-  rake (~> 10.0)
+  rake (~> 13.0.1)
   rspec (~> 3.0)
 
 BUNDLED WITH
