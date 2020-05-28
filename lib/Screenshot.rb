@@ -1,7 +1,3 @@
-require_relative "Dhalang/version"
-require 'uri'
-require 'tempfile'
-
 module Dhalang
   class Screenshot
     SCREENSHOT_GENERATOR_JS_PATH = File.expand_path('../js/screenshot-generator.js', __FILE__)
