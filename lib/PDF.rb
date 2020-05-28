@@ -1,10 +1,10 @@
-require "Dhalang/version"
+require_relative "Dhalang/version"
 require 'uri'
 require 'tempfile'
 
 module Dhalang
   class PDF
-    PDF_GENERATOR_JS_PATH = File.expand_path('../js/pdfgenerator.js', __FILE__)
+    PDF_GENERATOR_JS_PATH = File.expand_path('../js/pdf-generator.js', __FILE__)
     PROJECT_PATH = Dir.pwd + '/node_modules/'
 
     def self.get_from_url(url)
