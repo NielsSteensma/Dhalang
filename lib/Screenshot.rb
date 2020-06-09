@@ -1,47 +1,43 @@
 module Dhalang
+  # Allows consumers of this library to take screenshots with Puppeteer. 
   class Screenshot
-    SCREENSHOT_GENERATOR_JS_PATH = File.expand_path('../js/screenshot-generator.js', __FILE__)
-    PROJECT_PATH = Dir.pwd + '/node_modules/'
-
+    PUPPETEER_SCRIPT_PATH = File.expand_path('../js/screenshot-generator.js', __FILE__).freeze
+    private_constant :PUPPETEER_SCRIPT_PATH
+    
+    # Captures a full JPEG screenshot of the webpage under the given url.
+    #
+    # @param  [String] url        The url to take a screenshot of.
+    #
+    # @return [String] the screenshot that was taken as binary.
     def self.get_from_url_as_jpeg(url)
-      validate_url(url)
-      get_image(url, :jpeg)
+      get(url, "jpeg")
     end
 
+    # Captures a full PNG screenshot of the webpage under the given url.
+    #
+    # @param  [String] url        The url to take a screenshot of.
+    #
+    # @return [String] The screenshot that was taken as binary.
     def self.get_from_url_as_png(url)
-      validate_url(url)
-      get_image(url, :png)
+      get(url, "png")
     end
-
-    private
-    def self.validate_url(url)
-      if (url !~ URI::DEFAULT_PARSER.regexp[:ABS_URI])
-        raise URI::InvalidURIError, 'The given url was invalid, use format http://www.example.com'
-      end
-    end
-
-    def self.create_temporary_screenshot_file
-      Tempfile.new("png")
-    end
-
-    def self.get_image(url, type)
-      temporary_screenshot_save_file = create_temporary_screenshot_file
+    
+    # Groups and executes the logic for taking a screenhot of a webpage.
+    #
+    # @param  [String] url        The url to take a screenshot of.
+    # @param  [String] image_type The image type to use for storing the screenshot.
+    #
+    # @return [String] The screenshot that was taken as binary.
+    private_class_method def self.get(url, image_type)
+      UrlUtils.validate(url)
+      temp_file = FileUtils.create_temp_file(image_type)
       begin
-        visit_page_with_puppeteer(url, temporary_screenshot_save_file.path, type)
-        binary_image_content = get_file_content_as_binary_string(temporary_screenshot_save_file)
+        Puppeteer.visit(url, PUPPETEER_SCRIPT_PATH, temp_file.path, image_type)
+        binary_image_content = FileUtils.read_binary(temp_file.path)
       ensure
-        temporary_screenshot_save_file.close unless temporary_screenshot_save_file.closed?
-        temporary_screenshot_save_file.unlink
+        FileUtils.delete(temp_file)
       end
       return binary_image_content
-    end
-
-    def self.visit_page_with_puppeteer(page_to_visit, path_to_save_pdf_to, image_save_type)
-      system("node #{SCREENSHOT_GENERATOR_JS_PATH} #{page_to_visit} #{Shellwords.escape(path_to_save_pdf_to)} #{Shellwords.escape(PROJECT_PATH)} #{Shellwords.escape(image_save_type)}")
-    end
-
-    def self.get_file_content_as_binary_string(file)
-      IO.binread(file.path)
     end
   end
 end
