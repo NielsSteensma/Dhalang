@@ -49,7 +49,7 @@ end
 To return the PNG from a Rails controller you can do the following:  
 ```
 def example_controller_method  
-    binary_png = Dhalang::Screenshot.get_from_url_as_png("https://www.google.nl")
+    binary_png = Dhalang::Screenshot.get_from_url_as_png("https://www.google.com")
     send_data(binary_png, filename: 'screenshotofgoogle.png', type: 'image/png')   
 end
 ```
@@ -57,7 +57,7 @@ end
 To return the JPEG from a Rails controller you can do the following:  
 ```
 def example_controller_method  
-    binary_jpeg = Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.nl")
+    binary_jpeg = Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com")
     send_data(binary_jpeg, filename: 'screenshotofgoogle.jpeg', type: 'image/jpeg')   
 end
 ```
