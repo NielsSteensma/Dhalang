@@ -4,6 +4,12 @@ module Dhalang
         NODE_MODULES_PATH = Dir.pwd + '/node_modules/'.freeze
         private_constant :NODE_MODULES_PATH
 
+        NAVIGATION_TIMEOUT = 10000
+        private_constant :NAVIGATION_TIMEOUT
+
+        NAVIGATION_WAIT_UNTIL = 'load'
+        private_constant :NAVIGATION_WAIT_UNTIL
+
 
         # Launches a new Node process, executing the (Puppeteer) script under the given script_path.
         #
@@ -28,7 +34,11 @@ module Dhalang
                 webPageUrl: page_url,
                 tempFilePath: temp_file_path, 
                 puppeteerPath: NODE_MODULES_PATH, 
-                imageType: temp_file_extension
+                imageType: temp_file_extension,
+                navigationParameters: {
+                    timeout: NAVIGATION_TIMEOUT,
+                    waitUntil: NAVIGATION_WAIT_UNTIL
+                }
             }.to_json
         end
     end
