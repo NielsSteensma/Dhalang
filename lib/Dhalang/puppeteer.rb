@@ -17,8 +17,9 @@ module Dhalang
         # @param [String] script_path           The absolute path of the JS script to execute.
         # @param [String] temp_file_path        The absolute path of the temp file to use to write any actions from Puppeteer.
         # @param [String] temp_file_extension   The extension of the temp file.
-        def self.visit(page_url, script_path, temp_file_path, temp_file_extension)
-            configuration = create_configuration(page_url, script_path, temp_file_path, temp_file_extension)
+        # @param [Object] options               Set of options to use, configurable by the user.
+        def self.visit(page_url, script_path, temp_file_path, temp_file_extension, options)
+            configuration = create_configuration(page_url, script_path, temp_file_path, temp_file_extension, options)
             system("node #{script_path} #{Shellwords.escape(configuration)}")
         end
 
@@ -29,14 +30,15 @@ module Dhalang
         # @param [String] script_path           The absolute path of the JS script to execute.
         # @param [String] temp_file_path        The absolute path of the temp file to use to write any actions from Puppeteer.
         # @param [String] temp_file_extension   The extension of the temp file.
-        private_class_method def self.create_configuration(page_url, script_path, temp_file_path, temp_file_extension)
+        # @param [Hash]   options               Set of options to use, configurable by the user.
+        private_class_method def self.create_configuration(page_url, script_path, temp_file_path, temp_file_extension, options)
             {
                 webPageUrl: page_url,
                 tempFilePath: temp_file_path, 
                 puppeteerPath: NODE_MODULES_PATH, 
                 imageType: temp_file_extension,
                 navigationParameters: {
-                    timeout: NAVIGATION_TIMEOUT,
+                    timeout: options.has_key?(:navigationTimeout) ? options.navigationTimeout : NAVIGATION_TIMEOUT,
                     waitUntil: NAVIGATION_WAIT_UNTIL
                 }
             }.to_json
