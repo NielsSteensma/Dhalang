@@ -38,6 +38,20 @@ __Get a JPEG screenshot of a website__
 
 All methods return a string containing the PDF or JPEG/PNG in binary.   
   
+  
+  
+## Custom configuration
+Depending on your use case you may want to change the way Dhalang interacts with Puppeteer. You can do this by passing a Hash with custom configuration parameters as last argument to library calls.
+
+So for example:
+`Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com", {navigation_timeout: 20000)`  
+
+Below table list the possible configuration parameters you can set:
+| Key                | Description                                                                             | Default |
+|--------------------|-----------------------------------------------------------------------------------------|---------|
+| navigation_timeout | Amount of milliseconds until Puppeteer while timeout while navigating to the given page | 10000   |
+
+## Examples
 To return the PDF from a Rails controller you can do the following:  
 ```
 def example_controller_method  
