@@ -38,7 +38,7 @@ module Dhalang
                 puppeteerPath: NODE_MODULES_PATH, 
                 imageType: temp_file_extension,
                 navigationParameters: {
-                    timeout: options.has_key?(:navigationTimeout) ? options.navigationTimeout : NAVIGATION_TIMEOUT,
+                    timeout: options.has_key?(:navigation_timeout) ? options[:navigation_timeout] : NAVIGATION_TIMEOUT,
                     waitUntil: NAVIGATION_WAIT_UNTIL
                 }
             }.to_json
