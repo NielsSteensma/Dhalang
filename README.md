@@ -41,18 +41,18 @@ All methods return a string containing the PDF or JPEG/PNG in binary.
   
   
 ## Custom configuration
-Depending on your use case you may want to change the way Dhalang interacts with Puppeteer. You can do this by passing a Hash with custom configuration parameters as last argument to library calls.
+Depending on your use case you may want to change the way Dhalang interacts with Puppeteer. You can do this by passing a Hash with custom configuration parameters as last argument to any calls you make to the library.
 
 So for example:
-`Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com", {navigation_timeout: 20000)`  
+`Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com", {navigation_timeout: 20000})`  
 
 Below table list the possible configuration parameters you can set:
 | Key                | Description                                                                             | Default |
 |--------------------|-----------------------------------------------------------------------------------------|---------|
-| navigation_timeout | Amount of milliseconds until Puppeteer while timeout while navigating to the given page | 10000   |
+| navigation_timeout | Amount of milliseconds until Puppeteer while timeout when navigating to the given page | 10000   |
 
 ## Examples
-To return the PDF from a Rails controller you can do the following:  
+To return a PDF from a Rails controller you can do the following:  
 ```
 def example_controller_method  
     binary_pdf = Dhalang::PDF.get_from_url("https://www.google.com")  
@@ -60,7 +60,7 @@ def example_controller_method
 end
 ```
 
-To return the PNG from a Rails controller you can do the following:  
+To return a PNG from a Rails controller you can do the following:  
 ```
 def example_controller_method  
     binary_png = Dhalang::Screenshot.get_from_url_as_png("https://www.google.com")
@@ -68,7 +68,7 @@ def example_controller_method
 end
 ```
 
-To return the JPEG from a Rails controller you can do the following:  
+To return a JPEG from a Rails controller you can do the following:  
 ```
 def example_controller_method  
     binary_jpeg = Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com")
