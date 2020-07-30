@@ -35,7 +35,7 @@ module Dhalang
       UrlUtils.validate(url)
       temp_file = FileUtils.create_temp_file(image_type)
       begin
-        Puppeteer.visit(url, PUPPETEER_SCRIPT_PATH, temp_file.path, image_type)
+        Puppeteer.visit(url, PUPPETEER_SCRIPT_PATH, temp_file.path, image_type, options)
         binary_image_content = FileUtils.read_binary(temp_file.path)
       ensure
         FileUtils.delete(temp_file)
