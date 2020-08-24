@@ -5,6 +5,7 @@ require 'json'
 OPTION_KEY_NAVIGATION_PARAMETERS = 'navigationParameters'
 OPTION_KEY_NAVIGATION_TIMEOUT = 'timeout'
 OPTION_KEY_USER_AGENT = "userAgent"
+OPTION_KEY_VIEW_PORT = "viewPort"
 
 describe 'User option: navigation timeout' do
     context 'when set' do
@@ -40,6 +41,27 @@ describe 'User option: user agent' do
         it 'is passed as an empty string to the JS script' do
             expectUserOption do |userOptions|
                 expect(userOptions[OPTION_KEY_USER_AGENT]).to eq("")
+            end
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com")
+        end
+    end
+end
+
+describe 'User option: view port' do
+    context 'when set' do
+        it 'is passed as set to the JS script' do
+            expectUserOption do |userOptions|
+                expect(userOptions[OPTION_KEY_VIEW_PORT]['width']).to eq(1920)
+                expect(userOptions[OPTION_KEY_VIEW_PORT]['height']).to eq(1080)
+            end
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"view_port": {"width": 1920, "height": 1080}})
+        end
+    end
+
+    context 'when not set' do
+        it 'is passed as an empty string to the JS script' do
+            expectUserOption do |userOptions|
+                expect(userOptions[OPTION_KEY_VIEW_PORT]).to eq("")
             end
             Dhalang::Screenshot.get_from_url_as_png("http://www.google.com")
         end

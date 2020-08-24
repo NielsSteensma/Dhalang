@@ -13,6 +13,9 @@ module Dhalang
         USER_AGENT = ''
         private_constant :USER_AGENT
 
+        VIEW_PORT = ''
+        private_constant :VIEW_PORT
+
 
         # Launches a new Node process, executing the (Puppeteer) script under the given script_path.
         #
@@ -45,7 +48,8 @@ module Dhalang
                         timeout: options.has_key?(:navigation_timeout) ? options[:navigation_timeout] : NAVIGATION_TIMEOUT,
                         waitUntil: NAVIGATION_WAIT_UNTIL
                     },
-                    userAgent: options.has_key?(:user_agent) ? options[:user_agent] : USER_AGENT
+                    userAgent: options.has_key?(:user_agent) ? options[:user_agent] : USER_AGENT,
+                    viewPort: options.has_key?(:view_port) ? options[:view_port] : VIEW_PORT
                 }
             }.to_json
         end
