@@ -10,6 +10,9 @@ module Dhalang
         NAVIGATION_WAIT_UNTIL = 'load'
         private_constant :NAVIGATION_WAIT_UNTIL
 
+        USER_AGENT = ''
+        private_constant :USER_AGENT
+
 
         # Launches a new Node process, executing the (Puppeteer) script under the given script_path.
         #
@@ -20,7 +23,7 @@ module Dhalang
         # @param [Object] options               Set of options to use, configurable by the user.
         def self.visit(page_url, script_path, temp_file_path, temp_file_extension, options)
             configuration = create_configuration(page_url, script_path, temp_file_path, temp_file_extension, options)
-            system("node #{script_path} #{Shellwords.escape(configuration)}")
+            Kernel.system("node #{script_path} #{Shellwords.escape(configuration)}")
         end
 
         
@@ -37,9 +40,12 @@ module Dhalang
                 tempFilePath: temp_file_path, 
                 puppeteerPath: NODE_MODULES_PATH, 
                 imageType: temp_file_extension,
-                navigationParameters: {
-                    timeout: options.has_key?(:navigation_timeout) ? options[:navigation_timeout] : NAVIGATION_TIMEOUT,
-                    waitUntil: NAVIGATION_WAIT_UNTIL
+                userOptions: {
+                    navigationParameters: {
+                        timeout: options.has_key?(:navigation_timeout) ? options[:navigation_timeout] : NAVIGATION_TIMEOUT,
+                        waitUntil: NAVIGATION_WAIT_UNTIL
+                    },
+                    userAgent: options.has_key?(:user_agent) ? options[:user_agent] : USER_AGENT
                 }
             }.to_json
         end
