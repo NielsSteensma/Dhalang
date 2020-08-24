@@ -16,6 +16,9 @@ module Dhalang
         VIEW_PORT = ''
         private_constant :VIEW_PORT
 
+        HTTP_AUTHENTICATION_CREDENTIALS = ''
+        private_constant :HTTP_AUTHENTICATION_CREDENTIALS
+
 
         # Launches a new Node process, executing the (Puppeteer) script under the given script_path.
         #
@@ -49,7 +52,8 @@ module Dhalang
                         waitUntil: NAVIGATION_WAIT_UNTIL
                     },
                     userAgent: options.has_key?(:user_agent) ? options[:user_agent] : USER_AGENT,
-                    viewPort: options.has_key?(:view_port) ? options[:view_port] : VIEW_PORT
+                    viewPort: options.has_key?(:view_port) ? options[:view_port] : VIEW_PORT,
+                    httpAuthenticationCredentials: options.has_key?(:http_authentication_credentials) ? options[:http_authentication_credentials] : HTTP_AUTHENTICATION_CREDENTIALS
                 }
             }.to_json
         end

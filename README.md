@@ -52,6 +52,7 @@ Below table list the possible configuration parameters you can set:
 | navigation_timeout | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
 | user_agent         | User agent to send with the request                                                     | Default Puppeteer one           |
 | view_port          | Custom viewport to use for the request                                                  | Default Puppeteer one           |
+| http_authentication_credentials | Custom HTTP authentication credentials to use for the request              | None                            |
 
 ## Examples
 To return a PDF from a Rails controller you can do the following:  
