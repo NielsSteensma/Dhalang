@@ -47,9 +47,10 @@ So for example:
 `Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com", {navigation_timeout: 20000})`  
 
 Below table list the possible configuration parameters you can set:
-| Key                | Description                                                                             | Default |
-|--------------------|-----------------------------------------------------------------------------------------|---------|
-| navigation_timeout | Amount of milliseconds until Puppeteer while timeout when navigating to the given page | 10000   |
+| Key                | Description                                                                             | Default                         |
+|--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
+| navigation_timeout | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
+| user_agent         | User agent to send with the request                                                     | Default Puppeteer one           |
 
 ## Examples
 To return a PDF from a Rails controller you can do the following:  
