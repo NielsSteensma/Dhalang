@@ -19,6 +19,22 @@ module Dhalang
         HTTP_AUTHENTICATION_CREDENTIALS = ''
         private_constant :HTTP_AUTHENTICATION_CREDENTIALS
 
+        DEFAULT_OPTIONS = {
+            scale: 1,
+            displayHeaderFooter: false,
+            headerTemplate: '',
+            footerTemplate: '',
+            printBackground: true,
+            landscape: false,
+            pageRanges: '',
+            format: 'A4',
+            width: '',
+            height: '',
+            margin: { top: 36, right: 36, bottom: 20, left: 36 },
+            preferCSSPageSiz: false
+        }
+        private_constant :DEFAULT_OPTIONS
+
 
         # Launches a new Node process, executing the (Puppeteer) script under the given script_path.
         #
@@ -32,7 +48,7 @@ module Dhalang
             Kernel.system("node #{script_path} #{Shellwords.escape(configuration)}")
         end
 
-        
+
         # Returns a JSON string with the configuration to use within the Puppeteer script.
         #
         # @param [String] page_url              The url to pass to the goTo method of Puppeteer.
@@ -43,8 +59,8 @@ module Dhalang
         private_class_method def self.create_configuration(page_url, script_path, temp_file_path, temp_file_extension, options)
             {
                 webPageUrl: page_url,
-                tempFilePath: temp_file_path, 
-                puppeteerPath: NODE_MODULES_PATH, 
+                tempFilePath: temp_file_path,
+                puppeteerPath: NODE_MODULES_PATH,
                 imageType: temp_file_extension,
                 userOptions: {
                     navigationParameters: {
@@ -54,7 +70,8 @@ module Dhalang
                     userAgent: options.has_key?(:user_agent) ? options[:user_agent] : USER_AGENT,
                     viewPort: options.has_key?(:view_port) ? options[:view_port] : VIEW_PORT,
                     httpAuthenticationCredentials: options.has_key?(:http_authentication_credentials) ? options[:http_authentication_credentials] : HTTP_AUTHENTICATION_CREDENTIALS
-                }
+                },
+                pdfOptions: DEFAULT_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h
             }.to_json
         end
     end
