@@ -6,25 +6,27 @@ module Dhalang
     
     # Captures the full webpage under the given url as PDF.
     #
-    # @param  [String] url    The url to get as PDF.
+    # @param  [String] url      The url to get as PDF.
+    # @param  [Hash]   options  User configurable options.
     #
     # @return [String] The PDF that was created as binary.
-    def self.get_from_url(url)
+    def self.get_from_url(url, options = {})
       UrlUtils.validate(url)
-      get(url)
+      get(url, options)
     end
 
     # Captures the full HTML as PDF.
     # Useful when creating dynamic content, for example invoices.
     #
-    # @param  [String] html   The html to get as PDF.
+    # @param  [String]  html     The html to get as PDF.
+    # @param  [Hash]    options  User configurable options.
     #
     # @return [String] The PDF that was created as binary.
-    def self.get_from_html(html)
+    def self.get_from_html(html, options = {})
       html_file = FileUtils.create_temp_file("html", html)
       url = "file://" + html_file.path
       begin
-          binary_pdf_content = get(url)
+          binary_pdf_content = get(url, options)
       ensure
         FileUtils.delete(html_file)
       end
@@ -34,13 +36,14 @@ module Dhalang
     
     # Groups and executes the logic for creating a PDF of a webpage.
     #
-    # @param  [String] url    The url to create a PDF for.
+    # @param  [String]  url      The url to create a PDF for.
+    # @param  [Hash]    options  Set of options to use, passed by the user of this library.
     #
     # @return [String] The PDF that was created as binary.
-    private_class_method def self.get(url)
+    private_class_method def self.get(url, options)
       temp_file = FileUtils.create_temp_file("pdf")
       begin
-        Puppeteer.visit(url, PUPPETEER_SCRIPT_PATH, temp_file.path, "pdf")
+        Puppeteer.visit(url, PUPPETEER_SCRIPT_PATH, temp_file.path, "pdf", options)
         binary_pdf_content = FileUtils.read_binary(temp_file.path)
       ensure
         FileUtils.delete(temp_file)
