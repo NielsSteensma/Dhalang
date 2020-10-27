@@ -21,7 +21,7 @@ Install puppeteer in your application's root directory:
 
     $ npm install puppeteer
 
-<sub>NodeJS v7.6.0 or greater is required</sub>
+<sub>NodeJS v10.18.1 or greater is required</sub>
 ## Usage
 __Get a PDF of a website url__  
 `Dhalang::PDF.get_from_url("https://www.google.com")`  
