@@ -1,4 +1,6 @@
 language: ruby
+node_js:
+ - node
 rvm:
  - 2.6
 addons:
