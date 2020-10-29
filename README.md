@@ -3,10 +3,13 @@
 > Dhalang is a Ruby wrapper for Google's Puppeteer.
 
 
+
 ## Features
 * Generate PDFs from pages
 * Generate PDFs from html ( external images/stylesheets supported )  
 * Capture a screenshot of a webpage
+
+
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -40,13 +43,25 @@ All methods return a string containing the PDF or JPEG/PNG in binary.
   
   
   
-## Custom configuration
-Depending on your use case you may want to change the way Dhalang interacts with Puppeteer. You can do this by passing a Hash with custom configuration parameters as last argument to any calls you make to the library.
+## Custom PDF options
+To override the default PDF options that are set by Dhalang you can pass as last argument a hash with the custom options you want to set.
 
-So for example:
+For example to set custom margins:
+
+`Dhalang::PDF.get_from_url("https://www.google.com", {margin: { top: 100, right: 100, bottom: 100, left: 100}})
+`
+
+For a list of all possible options that can be set, please check out: https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagepdfoptions
+
+
+
+## Custom user options
+You may want to change the way Dhalang interacts with Puppeteer in general. User options can be set by providing them in a hash as last argument to any calls you make to the library. Are you setting both custom PDF and user options? Then they should be passed as a single hash. 
+
+For example to set a custom navigation timeout:
 `Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com", {navigation_timeout: 20000})`  
 
-Below table list the possible configuration parameters you can set:
+Below table lists all possible configuration parameters that can be set:
 | Key                | Description                                                                             | Default                         |
 |--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
 | navigation_timeout | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
@@ -54,7 +69,9 @@ Below table list the possible configuration parameters you can set:
 | view_port          | Custom viewport to use for the request                                                  | Default Puppeteer one           |
 | http_authentication_credentials | Custom HTTP authentication credentials to use for the request              | None                            |
 
-## Examples
+
+
+## Examples of using Dhalang
 To return a PDF from a Rails controller you can do the following:  
 ```
 def example_controller_method  
