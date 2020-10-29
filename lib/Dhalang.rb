@@ -8,4 +8,5 @@ module Dhalang
   require 'uri'
   require 'tempfile'
   require 'shellwords'
+  require 'json'
 end
