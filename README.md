@@ -59,15 +59,16 @@ For a list of all possible options that can be set, please check out: https://gi
 You may want to change the way Dhalang interacts with Puppeteer in general. User options can be set by providing them in a hash as last argument to any calls you make to the library. Are you setting both custom PDF and user options? Then they should be passed as a single hash. 
 
 For example to set a custom navigation timeout:
-`Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com", {navigation_timeout: 20000})`  
+`Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com", {navigationTimeout: 20000})`  
 
 Below table lists all possible configuration parameters that can be set:
 | Key                | Description                                                                             | Default                         |
 |--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
-| navigation_timeout | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
-| user_agent         | User agent to send with the request                                                     | Default Puppeteer one           |
-| view_port          | Custom viewport to use for the request                                                  | Default Puppeteer one           |
-| http_authentication_credentials | Custom HTTP authentication credentials to use for the request              | None                            |
+| navigationTimeout  | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
+| userAgent          | User agent to send with the request                                                     | Default Puppeteer one           |
+| isHeadless         | Indicates if Chromium should be launched headless                                       | true                            |
+| viewPort           | Custom viewport to use for the request                                                  | Default Puppeteer one           |
+| httpAuthenticationCredentials | Custom HTTP authentication credentials to use for the request                | None                            |
 
 
 

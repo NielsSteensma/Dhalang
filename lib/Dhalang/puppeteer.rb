@@ -4,20 +4,15 @@ module Dhalang
         NODE_MODULES_PATH = Dir.pwd + '/node_modules/'.freeze
         private_constant :NODE_MODULES_PATH
 
-        NAVIGATION_TIMEOUT = 10000
-        private_constant :NAVIGATION_TIMEOUT
-
-        NAVIGATION_WAIT_UNTIL = 'load'
-        private_constant :NAVIGATION_WAIT_UNTIL
-
-        USER_AGENT = ''
-        private_constant :USER_AGENT
-
-        VIEW_PORT = ''
-        private_constant :VIEW_PORT
-
-        HTTP_AUTHENTICATION_CREDENTIALS = ''
-        private_constant :HTTP_AUTHENTICATION_CREDENTIALS
+        USER_OPTIONS = {
+                navigationTimeout: 10000,
+                navigationWaitUntil: 'load',
+                userAgent: '',
+                isHeadless: true,
+                viewPort: '',
+                httpAuthenticationCredentials: ''
+        }
+        private_constant :USER_OPTIONS
 
         DEFAULT_OPTIONS = {
             scale: 1,
@@ -62,15 +57,7 @@ module Dhalang
                 tempFilePath: temp_file_path,
                 puppeteerPath: NODE_MODULES_PATH,
                 imageType: temp_file_extension,
-                userOptions: {
-                    navigationParameters: {
-                        timeout: options.has_key?(:navigation_timeout) ? options[:navigation_timeout] : NAVIGATION_TIMEOUT,
-                        waitUntil: NAVIGATION_WAIT_UNTIL
-                    },
-                    userAgent: options.has_key?(:user_agent) ? options[:user_agent] : USER_AGENT,
-                    viewPort: options.has_key?(:view_port) ? options[:view_port] : VIEW_PORT,
-                    httpAuthenticationCredentials: options.has_key?(:http_authentication_credentials) ? options[:http_authentication_credentials] : HTTP_AUTHENTICATION_CREDENTIALS
-                },
+                userOptions: USER_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value]}.to_h,
                 pdfOptions: DEFAULT_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h
             }.to_json
         end

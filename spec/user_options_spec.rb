@@ -2,9 +2,9 @@ require 'rspec'
 require 'Dhalang'
 require 'json'
 
-OPTION_KEY_NAVIGATION_PARAMETERS = 'navigationParameters'
-OPTION_KEY_NAVIGATION_TIMEOUT = 'timeout'
+OPTION_KEY_NAVIGATION_TIMEOUT = 'navigationTimeout'
 OPTION_KEY_USER_AGENT = "userAgent"
+OPTION_KEY_IS_HEADLESS = "isHeadless"
 OPTION_KEY_VIEW_PORT = "viewPort"
 OPTION_KEY_HTTP_AUTHENTICATION_CREDENTIALS = "httpAuthenticationCredentials"
 
@@ -12,16 +12,16 @@ describe 'User option: navigation timeout' do
     context 'when set' do
         it 'is passed as set to the JS script' do
             expectUserOption do |userOptions|
-                expect(userOptions[OPTION_KEY_NAVIGATION_PARAMETERS][OPTION_KEY_NAVIGATION_TIMEOUT]).to be(500)
+                expect(userOptions[OPTION_KEY_NAVIGATION_TIMEOUT]).to be(500)
             end
-            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"navigation_timeout": 500})
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"navigationTimeout": 500})
         end
     end
   
     context 'when not set' do
         it 'is passed with a default value of 10000 to the JS script' do
             expectUserOption do |userOptions|
-                expect(userOptions[OPTION_KEY_NAVIGATION_PARAMETERS][OPTION_KEY_NAVIGATION_TIMEOUT]).to be(10000)
+                expect(userOptions[OPTION_KEY_NAVIGATION_TIMEOUT]).to be(10000)
             end
             Dhalang::Screenshot.get_from_url_as_png("http://www.google.com")
         end
@@ -34,7 +34,7 @@ describe 'User option: user agent' do
             expectUserOption do |userOptions|
                 expect(userOptions[OPTION_KEY_USER_AGENT]).to eq("Googlebot/2.1 (+http://www.google.com/bot.html)")
             end
-            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"user_agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"})
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"userAgent": "Googlebot/2.1 (+http://www.google.com/bot.html)"})
         end
     end
 
@@ -48,6 +48,26 @@ describe 'User option: user agent' do
     end
 end
 
+describe 'User option: headless mode' do
+    context 'when set' do
+        it 'is passed as set to the JS script' do
+            expectUserOption do |userOptions|
+                expect(userOptions[OPTION_KEY_IS_HEADLESS]).to be false
+            end
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"isHeadless": false})
+        end
+    end
+
+    context 'when not set' do
+        it 'is passed as with a value of true to the JS script' do
+            expectUserOption do |userOptions|
+                expect(userOptions[OPTION_KEY_IS_HEADLESS]).to be true
+            end
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"isHeadless": true})
+        end
+    end
+end
+
 describe 'User option: view port' do
     context 'when set' do
         it 'is passed as set to the JS script' do
@@ -55,7 +75,7 @@ describe 'User option: view port' do
                 expect(userOptions[OPTION_KEY_VIEW_PORT]['width']).to eq(1920)
                 expect(userOptions[OPTION_KEY_VIEW_PORT]['height']).to eq(1080)
             end
-            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"view_port": {"width": 1920, "height": 1080}})
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"viewPort": {"width": 1920, "height": 1080}})
         end
     end
 
@@ -76,7 +96,7 @@ describe 'User option: http authentication credentials' do
                 expect(userOptions[OPTION_KEY_HTTP_AUTHENTICATION_CREDENTIALS]['username']).to eq("admin")
                 expect(userOptions[OPTION_KEY_HTTP_AUTHENTICATION_CREDENTIALS]['password']).to eq("1234")
             end
-            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"http_authentication_credentials": {"username": "admin", "password": "1234"}})
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"httpAuthenticationCredentials": {"username": "admin", "password": "1234"}})
         end
     end
 
