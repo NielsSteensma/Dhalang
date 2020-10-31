@@ -13,6 +13,9 @@ module Dhalang
         USER_AGENT = ''
         private_constant :USER_AGENT
 
+        IS_HEADLESS = true
+        private_constant :IS_HEADLESS
+
         VIEW_PORT = ''
         private_constant :VIEW_PORT
 
@@ -68,6 +71,7 @@ module Dhalang
                         waitUntil: NAVIGATION_WAIT_UNTIL
                     },
                     userAgent: options.has_key?(:user_agent) ? options[:user_agent] : USER_AGENT,
+                    isHeadless: options.has_key?(:is_headless) ? options[:is_headless] : IS_HEADLESS,
                     viewPort: options.has_key?(:view_port) ? options[:view_port] : VIEW_PORT,
                     httpAuthenticationCredentials: options.has_key?(:http_authentication_credentials) ? options[:http_authentication_credentials] : HTTP_AUTHENTICATION_CREDENTIALS
                 },

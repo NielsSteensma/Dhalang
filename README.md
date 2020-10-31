@@ -66,6 +66,7 @@ Below table lists all possible configuration parameters that can be set:
 |--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
 | navigation_timeout | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
 | user_agent         | User agent to send with the request                                                     | Default Puppeteer one           |
+| is_headless        | Indicates if Chromium should be launched headless                                       | true                            |
 | view_port          | Custom viewport to use for the request                                                  | Default Puppeteer one           |
 | http_authentication_credentials | Custom HTTP authentication credentials to use for the request              | None                            |
 

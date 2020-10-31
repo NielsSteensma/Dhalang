@@ -5,6 +5,7 @@ require 'json'
 OPTION_KEY_NAVIGATION_PARAMETERS = 'navigationParameters'
 OPTION_KEY_NAVIGATION_TIMEOUT = 'timeout'
 OPTION_KEY_USER_AGENT = "userAgent"
+OPTION_KEY_IS_HEADLESS = "isHeadless"
 OPTION_KEY_VIEW_PORT = "viewPort"
 OPTION_KEY_HTTP_AUTHENTICATION_CREDENTIALS = "httpAuthenticationCredentials"
 
@@ -44,6 +45,26 @@ describe 'User option: user agent' do
                 expect(userOptions[OPTION_KEY_USER_AGENT]).to eq("")
             end
             Dhalang::Screenshot.get_from_url_as_png("http://www.google.com")
+        end
+    end
+end
+
+describe 'User option: headless mode' do
+    context 'when set' do
+        it 'is passed as set to the JS script' do
+            expectUserOption do |userOptions|
+                expect(userOptions[OPTION_KEY_IS_HEADLESS]).to be false
+            end
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"is_headless": false})
+        end
+    end
+
+    context 'when not set' do
+        it 'is passed as with a value of true to the JS script' do
+            expectUserOption do |userOptions|
+                expect(userOptions[OPTION_KEY_IS_HEADLESS]).to be true
+            end
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"is_headless": true})
         end
     end
 end
