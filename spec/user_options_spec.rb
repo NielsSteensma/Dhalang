@@ -12,12 +12,12 @@ describe 'User option: navigation timeout' do
     context 'when set' do
         it 'is passed as set to the JS script' do
             expectUserOption do |userOptions|
-                expect(userOptions[OPTION_KEY_NAVIGATION_PARAMETERS][OPTION_KEY_NAVIGATION_TIMEOUT]).to be(500)
+                expect(userOptions[OPTION_KEY_NAVIGATION_PARAMETERS][OPTION_KEY_NAVIGATION_TIMEOUT]).to be(12000)
             end
-            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"navigation_timeout": 500})
+            Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"navigation_timeout": 12000})
         end
     end
-  
+
     context 'when not set' do
         it 'is passed with a default value of 10000 to the JS script' do
             expectUserOption do |userOptions|
@@ -91,7 +91,7 @@ describe 'User option: http authentication credentials' do
 end
 
 def expectUserOption
-    expect(Kernel).to receive(:system) do |*args|
+    expect(Open3).to receive(:popen2e) do |*args|
         # First get all arguments between first opening and last closing bracket ( i.e. get the JSON ).
         unescapedJson = args[0][/\{(.*)}/,1]
         # Now remove all the slashes, as the JSON is sent as an escaped string.

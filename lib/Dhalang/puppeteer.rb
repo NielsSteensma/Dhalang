@@ -45,7 +45,17 @@ module Dhalang
         # @param [Object] options               Set of options to use, configurable by the user.
         def self.visit(page_url, script_path, temp_file_path, temp_file_extension, options)
             configuration = create_configuration(page_url, script_path, temp_file_path, temp_file_extension, options)
-            Kernel.system("node #{script_path} #{Shellwords.escape(configuration)}")
+
+            command = "node #{script_path} #{Shellwords.escape(configuration)}"
+
+            Open3.popen2e(command) do |_stdin, stdouterr, wait|
+                return nil if wait.value.success?
+
+                output = stdouterr.read.strip
+                output = nil if output == ''
+                message = output || "Exited with status #{wait.value.exitstatus}"
+                raise DhalangError, message
+            end
         end
 
 

@@ -29,6 +29,10 @@ describe '#get_from_url' do
       pdf_reader = PDF::Reader.new(create_pdf_file(pdf_binary_content).path)
       expect(pdf_reader.page(1).to_s.include?("Google")).to be true
     end
+
+    it 'should raise DhalangError on unknown domain' do
+      expect { Dhalang::PDF.get_from_url("https://unknown-domain") }.to raise_error(DhalangError, "net::ERR_NAME_NOT_RESOLVED at https://unknown-domain")
+    end
   end
 end
 
