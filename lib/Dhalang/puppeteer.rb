@@ -14,7 +14,7 @@ module Dhalang
         }
         private_constant :USER_OPTIONS
 
-        DEFAULT_OPTIONS = {
+        DEFAULT_PDF_OPTIONS = {
             scale: 1,
             displayHeaderFooter: false,
             headerTemplate: '',
@@ -28,7 +28,22 @@ module Dhalang
             margin: { top: 36, right: 36, bottom: 20, left: 36 },
             preferCSSPageSiz: false
         }
-        private_constant :DEFAULT_OPTIONS
+        private_constant :DEFAULT_PDF_OPTIONS
+
+        DEFAULT_PNG_OPTIONS = {
+            fullPage: true,
+            clip: nil,
+            omitBackground: false
+        }
+        private_constant :DEFAULT_PNG_OPTIONS
+
+        DEFAULT_JPEG_OPTIONS = {
+            quality: 100,
+            fullPage: true,
+            clip: nil,
+            omitBackground: false
+        }
+        private_constant :DEFAULT_JPEG_OPTIONS
 
 
         # Launches a new Node process, executing the (Puppeteer) script under the given script_path.
@@ -68,7 +83,9 @@ module Dhalang
                 puppeteerPath: NODE_MODULES_PATH,
                 imageType: temp_file_extension,
                 userOptions: USER_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value]}.to_h,
-                pdfOptions: DEFAULT_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h
+                pdfOptions: DEFAULT_PDF_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h,
+                pngOptions: DEFAULT_PNG_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h,
+                jpegOptions: DEFAULT_JPEG_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h
             }.to_json
         end
     end
