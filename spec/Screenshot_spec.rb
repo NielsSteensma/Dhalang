@@ -30,6 +30,10 @@ describe '#get_from_url_as_png' do
       file_path = create_image_file(png_binary_content).path
       expect(FastImage.type(file_path)).to be(:png)
     end
+
+    it 'should raise DhalangError on unknown domain' do
+      expect { Dhalang::Screenshot.get_from_url_as_png("https://unknown-domain") }.to raise_error(DhalangError, "net::ERR_NAME_NOT_RESOLVED at https://unknown-domain")
+    end
   end
 end
 

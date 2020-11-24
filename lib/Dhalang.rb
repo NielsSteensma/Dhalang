@@ -4,9 +4,11 @@ module Dhalang
   require_relative 'Dhalang/version'
   require_relative 'Dhalang/url_utils'
   require_relative 'Dhalang/file_utils'
+  require_relative 'Dhalang/error'
   require_relative 'Dhalang/puppeteer'
   require 'uri'
   require 'tempfile'
   require 'shellwords'
   require 'json'
+  require 'open3'
 end
