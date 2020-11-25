@@ -43,15 +43,22 @@ All methods return a string containing the PDF or JPEG/PNG in binary.
   
   
   
-## Custom PDF options
-To override the default PDF options that are set by Dhalang you can pass as last argument a hash with the custom options you want to set.
+## Custom PDF/screenshot options
+To override the default options that are set by Dhalang you can pass as last argument a hash with the custom options you want to set.
 
-For example to set custom margins:
+For example to set custom margins for PDFs:
 
 `Dhalang::PDF.get_from_url("https://www.google.com", {margin: { top: 100, right: 100, bottom: 100, left: 100}})
 `
 
-For a list of all possible options that can be set, please check out: https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagepdfoptions
+For example to only take a screenshot of the visible part of the page:
+`Dhalang::Screenshot.get_from_url_as_png("https://www.google.com", {fullPage: false})
+`
+
+A list of all possible PDF options that can be set, can be found at: https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagepdfoptions
+
+A list of all possible screenshot options that can be set, can be found at: https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagescreenshotoptions
+
 
 
 
