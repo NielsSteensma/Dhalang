@@ -12,10 +12,6 @@ describe '#get_from_url_as_png' do
   end
 
   context 'valid url' do
-    it 'should not raise ArgumentError' do
-      expect { Dhalang::Screenshot.get_from_url_as_png("https://www.google.com") }.to_not raise_error(URI::InvalidURIError)
-    end
-
     it 'should return an object of type string' do
       expect(Dhalang::Screenshot.get_from_url_as_png("https://www.google.com")).to be_an_instance_of(String)
     end
@@ -51,10 +47,6 @@ describe '#get_from_url_as_jpeg' do
   end
 
   context 'valid url' do
-    it 'should not raise ArgumentError' do
-      expect { Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com") }.to_not raise_error(URI::InvalidURIError)
-    end
-
     it 'should return an object of type string' do
       expect(Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com")).to be_an_instance_of(String)
     end
