@@ -1,6 +1,6 @@
 {
   "name": "dhalang",
-  "version": "1.0.0",
+  "version": "0.5.0",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/NielsSteensma/Dhalang.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/NielsSteensma/Dhalang/issues"
   },
