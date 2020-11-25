@@ -33,6 +33,7 @@ module Dhalang
     # @return [String] The screenshot that was taken as binary.
     private_class_method def self.get(url, image_type, options)
       UrlUtils.validate(url)
+      validate_options(options)
       temp_file = FileUtils.create_temp_file(image_type)
       begin
         Puppeteer.visit(url, PUPPETEER_SCRIPT_PATH, temp_file.path, image_type, options)
@@ -41,6 +42,16 @@ module Dhalang
         FileUtils.delete(temp_file)
       end
       return binary_image_content
+    end
+
+    # Raises an error if the given options might conflict with the Puppeteer configuration.
+    #
+    # @param [Hash] options The options to validate
+    private_class_method def self.validate_options(options)
+      symbolized_options = options.transform_keys(&:to_sym)
+      if symbolized_options.has_key?(:type)
+        raise DhalangError, 'Invalid option set: "type"'
+      end
     end
   end
 end
