@@ -72,6 +72,7 @@ Below table lists all possible configuration parameters that can be set:
 | Key                | Description                                                                             | Default                         |
 |--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
 | navigationTimeout  | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
+| navigationWaitForSelector | If set, Dhalang will wait for the specified selector to appear before creating the screenshot or PDF | None        |
 | userAgent          | User agent to send with the request                                                     | Default Puppeteer one           |
 | isHeadless         | Indicates if Chromium should be launched headless                                       | true                            |
 | isAutoHeight       | When set to true the height of generated PDFs will be based on the scrollHeight property of the document body | false       |
