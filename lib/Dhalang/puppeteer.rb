@@ -11,7 +11,8 @@ module Dhalang
                 userAgent: '',
                 isHeadless: true,
                 viewPort: '',
-                httpAuthenticationCredentials: ''
+                httpAuthenticationCredentials: '',
+                isAutoHeight: false
         }
         private_constant :USER_OPTIONS
 
