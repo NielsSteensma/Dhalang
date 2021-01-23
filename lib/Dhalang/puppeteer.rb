@@ -7,10 +7,13 @@ module Dhalang
         USER_OPTIONS = {
                 navigationTimeout: 10000,
                 navigationWaitUntil: 'load',
+                navigationWaitForSelector: '',
+                navigationWaitForXPath: '',
                 userAgent: '',
                 isHeadless: true,
                 viewPort: '',
-                httpAuthenticationCredentials: ''
+                httpAuthenticationCredentials: '',
+                isAutoHeight: false
         }
         private_constant :USER_OPTIONS
 
