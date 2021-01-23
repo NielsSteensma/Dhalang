@@ -74,6 +74,7 @@ Below table lists all possible configuration parameters that can be set:
 | navigationTimeout  | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
 | userAgent          | User agent to send with the request                                                     | Default Puppeteer one           |
 | isHeadless         | Indicates if Chromium should be launched headless                                       | true                            |
+| isAutoHeight       | When set to true the height of generated PDFs will be based on the scrollHeight property of the document body | false       |
 | viewPort           | Custom viewport to use for the request                                                  | Default Puppeteer one           |
 | httpAuthenticationCredentials | Custom HTTP authentication credentials to use for the request                | None                            |
 
