@@ -8,6 +8,7 @@ module Dhalang
                 navigationTimeout: 10000,
                 navigationWaitUntil: 'load',
                 navigationWaitForSelector: '',
+                navigationWaitForXPath: '',
                 userAgent: '',
                 isHeadless: true,
                 viewPort: '',
