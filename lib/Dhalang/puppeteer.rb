@@ -29,7 +29,8 @@ module Dhalang
             width: '',
             height: '',
             margin: { top: 36, right: 36, bottom: 20, left: 36 },
-            preferCSSPageSiz: false
+            preferCSSPageSiz: false,
+            omitBackground: false
         }
         private_constant :DEFAULT_PDF_OPTIONS
 
