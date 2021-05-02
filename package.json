@@ -1,6 +1,6 @@
 {
   "name": "dhalang",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -19,7 +19,7 @@
     "url": "https://github.com/NielsSteensma/Dhalang/issues"
   },
   "homepage": "https://github.com/NielsSteensma/Dhalang#readme",
-  "devDependencies": {
-    "puppeteer": "^5.5.0"
+  "dependencies": {
+    "puppeteer": "^9.0.0"
   }
 }
