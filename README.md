@@ -84,25 +84,25 @@ Below table lists all possible configuration parameters that can be set:
 
 ## Examples of using Dhalang
 To return a PDF from a Rails controller you can do the following:  
-```
-def example_controller_method  
-    binary_pdf = Dhalang::PDF.get_from_url("https://www.google.com")  
-    send_data(binary_pdf, filename: 'pdfofgoogle.pdf', type: 'application/pdf')  
+```ruby
+def example_controller_method
+  binary_pdf = Dhalang::PDF.get_from_url("https://www.google.com")  
+  send_data(binary_pdf, filename: 'pdfofgoogle.pdf', type: 'application/pdf')  
 end
 ```
 
 To return a PNG from a Rails controller you can do the following:  
-```
-def example_controller_method  
-    binary_png = Dhalang::Screenshot.get_from_url_as_png("https://www.google.com")
-    send_data(binary_png, filename: 'screenshotofgoogle.png', type: 'image/png')   
+```ruby
+def example_controller_method
+  binary_png = Dhalang::Screenshot.get_from_url_as_png("https://www.google.com")
+  send_data(binary_png, filename: 'screenshotofgoogle.png', type: 'image/png')   
 end
 ```
 
 To return a JPEG from a Rails controller you can do the following:  
-```
-def example_controller_method  
-    binary_jpeg = Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com")
-    send_data(binary_jpeg, filename: 'screenshotofgoogle.jpeg', type: 'image/jpeg')   
+```ruby
+def example_controller_method
+  binary_jpeg = Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com")
+  send_data(binary_jpeg, filename: 'screenshotofgoogle.jpeg', type: 'image/jpeg')   
 end
 ```
