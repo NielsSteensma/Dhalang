@@ -89,7 +89,7 @@ Below table lists all possible configuration parameters that can be set:
 | isAutoHeight       | When set to true the height of generated PDFs will be based on the scrollHeight property of the document body | false     |
 | viewPort           | Custom viewport to use for the request                                                  | Default Puppeteer one           |
 | httpAuthenticationCredentials | Custom HTTP authentication credentials to use for the request                | None                            |
-
+| chromeOptions  | A array of [options](https://peter.sh/experiments/chromium-command-line-switches/) that can be passed to puppeteer in addition to the mandatory `['--no-sandbox', '--disable-setuid-sandbox']` | []                           |
 
 
 ## Examples of using Dhalang
