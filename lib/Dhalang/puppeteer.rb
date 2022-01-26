@@ -13,7 +13,8 @@ module Dhalang
                 isHeadless: true,
                 viewPort: '',
                 httpAuthenticationCredentials: '',
-                isAutoHeight: false
+                isAutoHeight: false,
+                chromeOptions: []
         }
         private_constant :USER_OPTIONS
 
