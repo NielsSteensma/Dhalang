@@ -23,6 +23,8 @@ module Dhalang
             displayHeaderFooter: false,
             headerTemplate: '',
             footerTemplate: '',
+            headerTemplateFile: '',
+            footerTemplateFile: '',
             printBackground: true,
             landscape: false,
             pageRanges: '',
