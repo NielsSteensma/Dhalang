@@ -14,7 +14,7 @@ describe 'User option: navigation timeout' do
       expect_user_option do |user_options|
         expect(user_options[OPTION_KEY_NAVIGATION_TIMEOUT]).to be(12000)
       end
-      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"navigationTimeout": 12000})
+      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", { "navigationTimeout": 12000 })
     end
   end
 
@@ -34,7 +34,7 @@ describe 'User option: user agent' do
       expect_user_option do |user_options|
         expect(user_options[OPTION_KEY_USER_AGENT]).to eq("Googlebot/2.1 (+http://www.google.com/bot.html)")
       end
-      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"userAgent": "Googlebot/2.1 (+http://www.google.com/bot.html)"})
+      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", { "userAgent": "Googlebot/2.1 (+http://www.google.com/bot.html)" })
     end
   end
 
@@ -54,7 +54,7 @@ describe 'User option: headless mode' do
       expect_user_option do |user_options|
         expect(user_options[OPTION_KEY_IS_HEADLESS]).to be false
       end
-      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"isHeadless": false})
+      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", { "isHeadless": false })
     end
   end
 
@@ -63,7 +63,7 @@ describe 'User option: headless mode' do
       expect_user_option do |user_options|
         expect(user_options[OPTION_KEY_IS_HEADLESS]).to be true
       end
-      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"isHeadless": true})
+      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", { "isHeadless": true })
     end
   end
 end
@@ -75,7 +75,7 @@ describe 'User option: view port' do
         expect(user_options[OPTION_KEY_VIEW_PORT]['width']).to eq(1920)
         expect(user_options[OPTION_KEY_VIEW_PORT]['height']).to eq(1080)
       end
-      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"viewPort": {"width": 1920, "height": 1080}})
+      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", { "viewPort": { "width": 1920, "height": 1080 } })
     end
   end
 
@@ -96,7 +96,7 @@ describe 'User option: http authentication credentials' do
         expect(user_options[OPTION_KEY_HTTP_AUTHENTICATION_CREDENTIALS]['username']).to eq("admin")
         expect(user_options[OPTION_KEY_HTTP_AUTHENTICATION_CREDENTIALS]['password']).to eq("1234")
       end
-      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", {"httpAuthenticationCredentials": {"username": "admin", "password": "1234"}})
+      Dhalang::Screenshot.get_from_url_as_png("http://www.google.com", { "httpAuthenticationCredentials": { "username": "admin", "password": "1234" } })
     end
   end
 
@@ -117,8 +117,8 @@ def expect_user_option
     # Now remove all the slashes, as the JSON is sent as an escaped string.
     escaped_json =  unescaped_json.gsub('\\', '') 
     # Add brackets at begin and end, convert string to hash.
-    user_options = JSON.load("{#{escaped_json}}")
+    user_options = JSON.parse("{#{escaped_json}}")
     # Execute the expectation block.
-    yield(user_options['user_options'])
+    yield(user_options['userOptions'])
   end
 end

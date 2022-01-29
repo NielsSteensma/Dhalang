@@ -3,7 +3,6 @@ require 'Dhalang'
 require 'pdf/reader'
 require 'fastimage'
 
-# Method: DhalangPDF.get_from_url
 describe '#get_from_url_as_png' do
   context 'url without specified protocol' do
     it 'should raise InvalidURIError' do

@@ -2,7 +2,6 @@ require 'rspec'
 require 'Dhalang'
 require 'pdf/reader'
 
-# Method: DhalangPDF.get_from_url
 describe '#get_from_url' do
   context 'url without specified protocol' do
     it 'should raise InvalidURIError' do
@@ -23,12 +22,11 @@ describe '#get_from_url' do
   end
 end
 
-# Method: DhalangPDF.get_from_html
 describe '#get_from_html' do
   context 'invalid html' do
     it 'returns empty content' do
       pdf_binary_content = Dhalang::PDF.get_from_html("")
-      expect(pdf_binary_content).to_s.empty?.to be true
+      expect(pdf_binary_content.empty?).to be true
     end
   end
 
