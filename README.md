@@ -67,7 +67,12 @@ A list of all possible PDF options that can be set, can be found at: https://git
 
 A list of all possible screenshot options that can be set, can be found at: https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagescreenshotoptions
 
-
+> The default Puppeteer options contain the options `headerTemplate` and `footerTemplate`. Puppeteer expects these to be HTML strings. By default, the Dhalang
+> gem passes all options as arguments in a `node ...` shell command.  In case the HTML strings are too long they might surpass the maximum
+> argument length of the host.  For example, on Linux the `MAX_ARG_LEN` is 128kB. Therefore, you can also pass the headers and footers as file path using the
+> options `headerTemplateFile` and `footerTemplateFile`. These non-Puppeteer-options will be used to populate the Puppeteer-options `headerTemplate` and `footerTemplate`.
+>
+> For example: `Dhalang::PDF.get_from_url("https://www.google.com", {headerTemplateFile: '/tmp/header.html', footerTemplateFile: '/tmp/footer.html'})`
 
 
 ## Custom user options
