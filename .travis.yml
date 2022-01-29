@@ -11,3 +11,11 @@ install:
  - bundle install
  - npm install
 script: bundle exec rake spec
+deploy:
+ provider: rubygems
+ api_key:
+  secure: 4G66P71ARmOe2hQiC4EksAHqd/DXcgyVPMo8i+Kee8Au3QGpXpeV8BQR9FtNU5wzlmXhxc+ppQothUovyNSMGKgx2Fe7/vYLZRVUWQLB/sP4AAkOUe6zaEyrhE7HvLPH4eunTJXFTKKiT+a7EEjZqtgb0f8COzbcHo+GuP94mgNupFMIo2QkXc3vVMns6kvei/U2mrJB4GYNI4aFIAgdtMMpN6vc9a8pdH1JNcZgXLu0Dl/9ors8dNkjg6PikNeVPrxq+PWiKloDUiifniXQIi3FZ72Fmw1lZqf97QFKv/LFKUiTGWwMrtWs8fZhHD6QLOJOq2sgTMBbxTW77d6vql+TUPtaqPIoWU1Hr2AHrIwP5EUKhfYtbt5aSMowYY44DZo/89FMZP3TGrchUHu+hFfaXLY/4WT/I0do0NaTrldQiZREFsT1TWZypGmn9M64ZU7AGy85ZhP18CCAn3VZf8t+KcRxbZAFaQNqeXG3gYx/jrkuJbpKFgUXDR3lZjwp7462NqA5sBPAv0ctm5YN9KHa4uVL9K/qCNyzVhGM3Uan48GruM/INuySC6SH5F2XBSwrSIGqaM++0rpDlX00SF5K3rVxJ2azTmFKtp54RigA6iKY78o674874WHPYWKi/3zDMxTL/CjFvAQ6R8A5UtOIUHnkokbjbmT4J7P00J4=
+ gemspec: Dhalang.gemspec
+ on:
+  branch: master
+  tags: true
