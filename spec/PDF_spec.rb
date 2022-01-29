@@ -25,8 +25,10 @@ end
 describe '#get_from_html' do
   context 'invalid html' do
     it 'returns empty content' do
-      pdf_binary_content = Dhalang::PDF.get_from_html("")
-      expect(pdf_binary_content.empty?).to be true
+      html = ""
+      pdf_binary_content = Dhalang::PDF.get_from_html(html)
+      pdf_reader = PDF::Reader.new(create_pdf_file(pdf_binary_content).path)
+      expect(pdf_reader.page(1).to_s.empty?).to be true
     end
   end
 
