@@ -22,9 +22,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 13.0.1"
+  spec.add_development_dependency "bundler", "~> 2.3.6"
+  spec.add_development_dependency "fastimage", "~> 2.2.6"
+  spec.add_development_dependency "pdf-reader", "~> 2.9.0"
+  spec.add_development_dependency "rake", "~> 13.0.6"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "pdf-reader", "~> 2.2"
-  spec.add_development_dependency "fastimage", "~> 1.8"
 end
