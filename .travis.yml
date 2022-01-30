@@ -1,20 +1,20 @@
 language: ruby
 node_js:
-  - node
+- node
 rvm:
-  - 2.6
+- 2.6
 addons:
   chrome: stable
 before_install:
-  - nvm install v15.0.1
+- nvm install v15.0.1
 install:
-  - bundle install
-  - npm install
+- bundle install
+- npm install
 script: bundle exec rake spec
 deploy:
   provider: rubygems
   api_key:
-    secure: virkIxAWVVsS4YMgSUVuomyduiTSKuEVSPBDhrFT5A1C1slHccWLQFxhIYYRjOQcH3OipKvJvKWmprJAOO/8pczOMPZXyEIMFsykpk2kIdeYfB9RIvH0xGKwPqCzMkElexPn0TcCPMT6xk70vE2pJuL85q2rqRykhpJhRcNNIDbR6B68M8Rn5Fa5VhyWRI7x94+0hnzOAqZpk0ufijsWl6T8TcQZjh18ysTwxClrVHci29c4ETbRa/0LbEunxGnI6U32byayq7ojhZXBB0eA7jqX8uiEwNA+JLgXOx/FkdYod+fVO8q3J4v/+6D8g1rxoFGxTv8veb/QfSSGwE4pYovBksIoiA4dtvEBfbia2xJlHKCSRx1JB0d05jRvS0T8K1M30mibfhIA5gB1oIO6uHOFLEbHQ6LmJxOvRxO/6VDdAO4QqRbyrGiR8H+9m4q1t+D0tPi19mTxs2RXJ4ftAv3fqkmM4TQci7cizNIIKAlXpu4/NMyjsq4EUY7unqLzGenupEkw12AhGT0w9tci3zeAvcEurUQez5C7gKHFbZWKSbCcplVw/zHTR+0c8jPhzShVxR169lC2U27/1zxwvOlrwqjIJPB9Cn84Nx38E1h9hZJNqzMRvjle4EI7XARsUNkX/PnKDFyetlwgW7L+gjgaGtxoEZYn8FxvY/4q4Do=
+    secure: qQFab+HiYYO4cmd8SjtTFBQJaq90vsXELTQs7r6aaVGsmjkuiGFjxE8Gc3aZ11ZlTbnVIz/Ws8Jk96Wzj4ziN07PbiNZu3Rr6umhyInNGC+vUWye7+/q+boN7Cqs/+o5yKPcEmGQRzNKx5XIUOzjkJF3u3ta3hqhzJ7GZwOzaIW0NBv1PbgPSR0tE5omhj82rYH/Ngf4AZDmInTrT2byL/etiwyD7nyWHNOCmzLCqsLeOCxzc5GJxBr7goWMTHLULG0M4RLczk77C8ndp9uke656qyvqpFxcUtreM6dGCtpWcehxNz/qqRiXzGa62YvdklOvyvx6mva5I+vtIMSK4Td+X4WQZ64v1AU2Cg+piWJ07rdyfWPhVY2acmMfU7Idw/rBIeGBEYIo8zLSTSFw0ef8nOtgMgmFX7DwRGqp1B8No4ilRPLTQQKZocQh8j7zBmPuwqI77Qr/NzF6PvxFnuUBUYmSpytD9oy1gSIjEm9PL6KFsnCECDr6h6lwxoB85W81sUNJglgCC1T6oahUu07KL0KGGDvGQt3dFzGviSZaNy2lVLzf/41miuN0gt7ONyJW89ROB3i3cDk7VGStZz+YvLyJjBW9QU4stG+2LwACOBw4DjUPS81Kqo5laeLPCOWm034DWIm/hZ6HYPyjMswcGm/ERkwuOVFFzAojyGc=
     gemspec: Dhalang.gemspec
   on:
     branch: master
