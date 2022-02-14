@@ -87,6 +87,7 @@ Below table lists all possible configuration parameters that can be set:
 | Key                | Description                                                                             | Default                         |
 |--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
 | navigationTimeout  | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
+| printToPDFTimeout  | Amount of milliseconds until Puppeteer while timeout when calling Page.printToPDF       | 0 (unlimited)                   |
 | navigationWaitForSelector | If set, Dhalang will wait for the specified selector to appear before creating the screenshot or PDF | None        |
 | navigationWaitForXPath | If set, Dhalang will wait for the specified XPath to appear before creating the screenshot or PDF | None              |
 | userAgent          | User agent to send with the request                                                     | Default Puppeteer one           |
