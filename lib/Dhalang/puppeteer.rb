@@ -5,16 +5,17 @@ module Dhalang
         private_constant :NODE_MODULES_PATH
 
         USER_OPTIONS = {
-                navigationTimeout: 10000,
-                navigationWaitUntil: 'load',
-                navigationWaitForSelector: '',
-                navigationWaitForXPath: '',
-                userAgent: '',
-                isHeadless: true,
-                viewPort: '',
-                httpAuthenticationCredentials: '',
-                isAutoHeight: false,
-                chromeOptions: []
+            navigationTimeout: 10000,
+            printToPDFTimeout: 0, # unlimited
+            navigationWaitUntil: 'load',
+            navigationWaitForSelector: '',
+            navigationWaitForXPath: '',
+            userAgent: '',
+            isHeadless: true,
+            viewPort: '',
+            httpAuthenticationCredentials: '',
+            isAutoHeight: false,
+            chromeOptions: []
         }
         private_constant :USER_OPTIONS
 

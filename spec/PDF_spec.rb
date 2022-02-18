@@ -16,6 +16,10 @@ describe '#get_from_url' do
       expect(pdf_reader.page(1).to_s.include?("Google")).to be true
     end
 
+    it 'raises timeout exceeded using very small value' do
+      expect { Dhalang::PDF.get_from_url("https://www.google.com", { printToPDFTimeout: 1 }) }.to raise_error(DhalangError, "waiting for Page.printToPDF failed: timeout 1ms exceeded")
+    end
+
     it 'raises DhalangError on unknown domain' do
       expect { Dhalang::PDF.get_from_url("https://unknown-domain") }.to raise_error(DhalangError, "net::ERR_NAME_NOT_RESOLVED at https://unknown-domain")
     end
