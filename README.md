@@ -39,14 +39,20 @@ Dhalang::PDF.get_from_html("<html><head></head><body><h1>examplestring</h1></bod
 
 __Get a PNG screenshot of a website__  
 ```ruby
-Dhalang::Screenshot.get_from_url_as_png("https://www.google.com")  
+Dhalang::Screenshot.get_from_url("https://www.google.com", :png)  
 ```
 
 __Get a JPEG screenshot of a website__  
 ```ruby
-Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com")  
+Dhalang::Screenshot.get_from_url("https://www.google.com", :jpeg)  
 ```
-All methods return a string containing the PDF or JPEG/PNG in binary.   
+
+__Get a WEBP screenshot of a website__  
+```ruby
+Dhalang::Screenshot.get_from_url("https://www.google.com", :webp)  
+```
+
+All methods return a string containing the PDF or JPEG/PNG/WEBP in binary.   
   
   
   
@@ -60,7 +66,7 @@ Dhalang::PDF.get_from_url("https://www.google.com", {margin: { top: 100, right: 
 
 For example to only take a screenshot of the visible part of the page:
 ```ruby
-Dhalang::Screenshot.get_from_url_as_png("https://www.google.com", {fullPage: false})
+Dhalang::Screenshot.get_from_url("https://www.google.com", :webp, {fullPage: false})
 ```
 
 A list of all possible PDF options that can be set, can be found at: https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagepdfoptions
@@ -80,7 +86,7 @@ You may want to change the way Dhalang interacts with Puppeteer in general. User
 
 For example to set a custom navigation timeout:
 ```ruby
-Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com", {navigationTimeout: 20000})  
+Dhalang::Screenshot.get_from_url("https://www.google.com", :jpeg, {navigationTimeout: 20000})  
 ```
 
 Below table lists all possible configuration parameters that can be set:
@@ -107,18 +113,10 @@ def example_controller_method
 end
 ```
 
-To return a PNG from a Rails controller you can do the following:  
+To return a screenshot from a Rails controller you can do the following:  
 ```ruby
 def example_controller_method
-  binary_png = Dhalang::Screenshot.get_from_url_as_png("https://www.google.com")
+  binary_png = Dhalang::Screenshot.get_from_url("https://www.google.com", :png)
   send_data(binary_png, filename: 'screenshotofgoogle.png', type: 'image/png')   
-end
-```
-
-To return a JPEG from a Rails controller you can do the following:  
-```ruby
-def example_controller_method
-  binary_jpeg = Dhalang::Screenshot.get_from_url_as_jpeg("https://www.google.com")
-  send_data(binary_jpeg, filename: 'screenshotofgoogle.jpeg', type: 'image/jpeg')   
 end
 ```
