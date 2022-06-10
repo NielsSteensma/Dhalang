@@ -38,18 +38,15 @@ module Dhalang
         }
         private_constant :DEFAULT_PDF_OPTIONS
 
-        DEFAULT_PNG_OPTIONS = {
+        DEFAULT_SCREENSHOT_OPTIONS = {
             fullPage: true,
             clip: nil,
             omitBackground: false
         }
-        private_constant :DEFAULT_PNG_OPTIONS
+        private_constant :DEFAULT_SCREENSHOT_OPTIONS
 
         DEFAULT_JPEG_OPTIONS = {
-            quality: 100,
-            fullPage: true,
-            clip: nil,
-            omitBackground: false
+            quality: 100
         }
         private_constant :DEFAULT_JPEG_OPTIONS
 
@@ -92,7 +89,7 @@ module Dhalang
                 imageType: temp_file_extension,
                 userOptions: USER_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value]}.to_h,
                 pdfOptions: DEFAULT_PDF_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h,
-                pngOptions: DEFAULT_PNG_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h,
+                screenshotOptions: DEFAULT_SCREENSHOT_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h,
                 jpegOptions: DEFAULT_JPEG_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }.to_h
             }.to_json
         end
