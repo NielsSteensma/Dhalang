@@ -7,6 +7,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
@@ -18,6 +20,4 @@ jobs:
       - run: npm ci
       - run: bundle exec rake spec
       - run: gem build -o Dhalang.gem Dhalang.gemspec
-      - env:
-          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
       - run: gem push Dhalang.gem
