@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Dhalang (0.6.4)
+    Dhalang (0.6.5)
 
 GEM
   remote: https://rubygems.org/
@@ -35,7 +35,9 @@ GEM
     ttfunk (1.7.0)
 
 PLATFORMS
+  x86-mingw32
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   Dhalang!
@@ -46,4 +48,4 @@ DEPENDENCIES
   rspec (~> 3.0)
 
 BUNDLED WITH
-   2.3.15
+   2.3.6
