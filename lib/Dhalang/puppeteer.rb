@@ -73,6 +73,19 @@ module Dhalang
             end
         end
 
+        def self.scrape(page_url, script_path, options)
+            configuration = create_configuration(page_url, script_path, "", "", options)
+            command = "node #{script_path} #{Shellwords.escape(configuration)}"
+            Open3.popen3(command) do |stdin, stdout, stderr, wait|
+                if wait.value.success?
+                    return stdout.read.strip
+                end
+                output = stderr.read.strip
+                output = nil if output == ''
+                message = output || "Exited with status #{wait.value.exitstatus}"
+                raise DhalangError, message
+            end
+        end
 
         # Returns a JSON string with the configuration to use within the Puppeteer script.
         #
