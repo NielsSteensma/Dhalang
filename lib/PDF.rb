@@ -1,8 +1,8 @@
 module Dhalang
   # Allows consumers of this library to create PDFs with Puppeteer. 
   class PDF
-    PUPPETEER_SCRIPT_PATH = File.expand_path('../js/pdf-generator.js', __FILE__).freeze
-    private_constant :PUPPETEER_SCRIPT_PATH
+    SCRIPT_PATH = File.expand_path('../js/pdf-generator.js', __FILE__).freeze
+    private_constant :SCRIPT_PATH
     
     # Captures the full webpage under the given url as PDF.
     #
@@ -36,14 +36,14 @@ module Dhalang
     
     # Groups and executes the logic for creating a PDF of a webpage.
     #
-    # @param  [String]  url      The url to create a PDF for.
     # @param  [Hash]    options  Set of options to use, passed by the user of this library.
     #
     # @return [String] The PDF that was created as binary.
     private_class_method def self.get(url, options)
       temp_file = FileUtils.create_temp_file("pdf")
       begin
-        Puppeteer.visit(url, PUPPETEER_SCRIPT_PATH, temp_file.path, "pdf", options)
+        puppeteer = PuppeteerConfiguration.new(url, temp_file.path, "pdf", options)
+        NodeScriptInvoker.execute_script(SCRIPT_PATH, puppeteer.json)
         binary_pdf_content = FileUtils.read_binary(temp_file.path)
       ensure
         FileUtils.delete(temp_file)

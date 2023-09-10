@@ -1,8 +1,8 @@
 module Dhalang
   # Allows consumers of this library to scrape webpages with Puppeteer.
   class Scraper
-    PUPPETEER_SCRIPT_PATH = File.expand_path('../js/scraper.js', __FILE__).freeze
-    private_constant :PUPPETEER_SCRIPT_PATH
+    SCRIPT_PATH = File.expand_path('../js/scraper.js', __FILE__).freeze
+    private_constant :SCRIPT_PATH
     
     # Scrapes the content of the webpage under the given url.
     #
@@ -12,7 +12,8 @@ module Dhalang
     # @return [String] The PDF that was created as binary.
     def self.get_from_url(url, options = {})
       UrlUtils.validate(url)
-      Puppeteer.scrape(url, PUPPETEER_SCRIPT_PATH, options)
+      puppeteer = PuppeteerConfiguration.new(url, options)
+      return NodeScriptInvoker.execute_script_and_read_stdout(SCRIPT_PATH, puppeteer.json)
     end
   end
 end
