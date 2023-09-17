@@ -4,14 +4,15 @@
 
 
 
-## Features
+# Features
 * Generate PDFs from pages
 * Generate PDFs from html ( external images/stylesheets supported )  
 * Capture a screenshot of a webpage
+* Scrape a webpage
 
 
 
-## Installation
+# Installation
 Add this line to your application's Gemfile:
 
     gem 'Dhalang'
@@ -25,38 +26,46 @@ Install puppeteer in your application's root directory:
     $ npm install puppeteer
 
 <sub>NodeJS v10.18.1 or greater is required</sub>
-## Usage
-__Get a PDF of a website url__  
+# Usage
+### PDF
+__Of a website url__  
 ```ruby
 Dhalang::PDF.get_from_url("https://www.google.com")
 ```
-It is important to pass the complete url, leaving out https://, http:// or www. will result in an error.
 
-__Get a PDF of a HTML string__  
+__Of a HTML string__  
 ```ruby
 Dhalang::PDF.get_from_html("<html><head></head><body><h1>examplestring</h1></body></html>") 
 ```
 
-__Get a PNG screenshot of a website__  
+*All methods return a string containing the PDF in binary.   
+*It is important to pass the complete url, leaving out https://, http:// or www. will result in an error.
+
+### Screenshot
+
+__PNG screenshot of a website__  
 ```ruby
 Dhalang::Screenshot.get_from_url("https://www.google.com", :png)  
 ```
 
-__Get a JPEG screenshot of a website__  
+__JPEG screenshot of a website__  
 ```ruby
 Dhalang::Screenshot.get_from_url("https://www.google.com", :jpeg)  
 ```
 
-__Get a WEBP screenshot of a website__  
+__WEBP screenshot of a website__  
 ```ruby
 Dhalang::Screenshot.get_from_url("https://www.google.com", :webp)  
 ```
+*All methods return a string containing the JPEG/PNG/WEBP in binary.   
+  
+### Scraping
 
-All methods return a string containing the PDF or JPEG/PNG/WEBP in binary.   
+```ruby
+Dhalang::Scraper.get_from_url("https://www.google.com")  
+```
   
-  
-  
-## Custom PDF/screenshot options
+# Custom PDF/screenshot options
 To override the default options that are set by Dhalang you can pass as last argument a hash with the custom options you want to set.
 
 For example to set custom margins for PDFs:
@@ -81,7 +90,7 @@ A list of all possible screenshot options that can be set, can be found at: http
 > For example: `Dhalang::PDF.get_from_url("https://www.google.com", {headerTemplateFile: '/tmp/header.html', footerTemplateFile: '/tmp/footer.html'})`
 
 
-## Custom user options
+# Custom user options
 You may want to change the way Dhalang interacts with Puppeteer in general. User options can be set by providing them in a hash as last argument to any calls you make to the library. Are you setting both custom PDF and user options? Then they should be passed as a single hash. 
 
 For example to set a custom navigation timeout:
@@ -104,7 +113,7 @@ Below table lists all possible configuration parameters that can be set:
 | chromeOptions  | A array of [options](https://peter.sh/experiments/chromium-command-line-switches/) that can be passed to puppeteer in addition to the mandatory `['--no-sandbox', '--disable-setuid-sandbox']` | []                           |
 
 
-## Examples of using Dhalang
+# Examples of using Dhalang
 To return a PDF from a Rails controller you can do the following:  
 ```ruby
 def example_controller_method
