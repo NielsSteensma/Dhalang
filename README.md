@@ -62,7 +62,7 @@ Dhalang::Screenshot.get_from_url("https://www.google.com", :webp)
 ### Scraping
 
 ```ruby
-Dhalang::Scraper.get_from_url("https://www.google.com")  
+Dhalang::Scraper.scrape("https://www.google.com")  
 ```
   
 # Custom PDF/screenshot options

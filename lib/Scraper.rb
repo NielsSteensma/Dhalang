@@ -10,7 +10,7 @@ module Dhalang
     # @param  [Hash]   options  User configurable options.
     #
     # @return [String] The html content of the page.
-    def self.get_from_url(url, options = {})
+    def self.scrape(url, options = {})
       UrlUtils.validate(url)
       configuration = PuppeteerConfiguration.new(url, options)
       return NodeScriptInvoker.execute_script_and_read_stdout(SCRIPT_PATH, configuration.json)
