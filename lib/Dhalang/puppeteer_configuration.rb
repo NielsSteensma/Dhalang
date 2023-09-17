@@ -63,7 +63,6 @@ module Dhalang
             self.page_url = page_url
             self.temp_file_path = temp_file_path
             self.temp_file_extension = temp_file_extension
-            self.temp_file_extension = options
             self.user_options = USER_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value]}
             self.pdf_options = DEFAULT_PDF_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }
             self.screenshot_options = DEFAULT_SCREENSHOT_OPTIONS.map { |option, value| [option, options.has_key?(option) ? options[option] : value] }

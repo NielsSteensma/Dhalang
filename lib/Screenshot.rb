@@ -43,9 +43,9 @@ module Dhalang
       validate_options(options)
 
       temp_file = FileUtils.create_temp_file(image_type)
-      puppeteer = PuppeteerConfiguration.new(url, temp_file.path, image_type, options)
+      configuration = PuppeteerConfiguration.new(url, temp_file.path, image_type, options)
       begin
-        NodeScriptInvoker.execute_script(SCRIPT_PATH, puppeteer.json)
+        NodeScriptInvoker.execute_script(SCRIPT_PATH, configuration.json)
         binary_image_content = FileUtils.read_binary(temp_file.path)
       ensure
         FileUtils.delete(temp_file)

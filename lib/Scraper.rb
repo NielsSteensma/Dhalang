@@ -9,11 +9,11 @@ module Dhalang
     # @param  [String] url      The url to get as PDF.
     # @param  [Hash]   options  User configurable options.
     #
-    # @return [String] The PDF that was created as binary.
+    # @return [String] The html content of the page.
     def self.get_from_url(url, options = {})
       UrlUtils.validate(url)
-      puppeteer = PuppeteerConfiguration.new(url, options)
-      return NodeScriptInvoker.execute_script_and_read_stdout(SCRIPT_PATH, puppeteer.json)
+      configuration = PuppeteerConfiguration.new(url, options)
+      return NodeScriptInvoker.execute_script_and_read_stdout(SCRIPT_PATH, configuration.json)
     end
   end
 end
