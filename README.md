@@ -1,4 +1,4 @@
-# Dhalang [![Build Status](https://travis-ci.com/NielsSteensma/Dhalang.svg?token=XZgKAByw2KZjcrsCh8gW&branch=master)](https://travis-ci.com/NielsSteensma/Dhalang)
+# Dhalang [![Build](https://github.com/NielsSteensma/Dhalang/actions/workflows/build.yml/badge.svg)](https://github.com/NielsSteensma/Dhalang/actions/workflows/build.yml)
 
 > Dhalang is a Ruby wrapper for Google's Puppeteer.
 
