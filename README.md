@@ -24,7 +24,7 @@ Install puppeteer in your application's root directory:
 
     $ npm install puppeteer
 
-<sub>NodeJS v10.18.1 or greater is required</sub>
+<sub>Dhalang and Puppeteer require Node ≥ 18 and Puppeteer ≥ 22</sub>
 ## Usage
 __Get a PDF of a website url__  
 ```ruby

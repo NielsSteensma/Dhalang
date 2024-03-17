@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/NielsSteensma/Dhalang#readme",
   "dependencies": {
-    "puppeteer": "^13.3.2"
+    "puppeteer": "^22.5.0"
   }
 }
