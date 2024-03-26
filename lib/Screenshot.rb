@@ -43,7 +43,7 @@ module Dhalang
       validate_options(options)
 
       temp_file = FileUtils.create_temp_file(image_type)
-      configuration = PuppeteerConfiguration.new(url, temp_file.path, image_type, options)
+      configuration = Configuration.new(url, temp_file.path, image_type, options)
       begin
         NodeScriptInvoker.execute_script(SCRIPT_PATH, configuration.json)
         binary_image_content = FileUtils.read_binary(temp_file.path)

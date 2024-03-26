@@ -42,7 +42,7 @@ module Dhalang
     private_class_method def self.get(url, options)
       temp_file = FileUtils.create_temp_file("pdf")
       begin
-        configuration = PuppeteerConfiguration.new(url, temp_file.path, "pdf", options)
+        configuration = Configuration.new(url, temp_file.path, "pdf", options)
         NodeScriptInvoker.execute_script(SCRIPT_PATH, configuration.json)
         binary_pdf_content = FileUtils.read_binary(temp_file.path)
       ensure

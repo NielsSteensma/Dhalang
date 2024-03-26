@@ -7,7 +7,7 @@ module Dhalang
   require_relative 'Dhalang/url_utils'
   require_relative 'Dhalang/file_utils'
   require_relative 'Dhalang/error'
-  require_relative 'Dhalang/puppeteer_configuration'
+  require_relative 'Dhalang/configuration'
   require 'uri'
   require 'tempfile'
   require 'shellwords'

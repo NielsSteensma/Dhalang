@@ -12,7 +12,7 @@ module Dhalang
     # @return [String] The html content of the page.
     def self.scrape(url, options = {})
       UrlUtils.validate(url)
-      configuration = PuppeteerConfiguration.new(url, options)
+      configuration = Configuration.new(url, options)
       return NodeScriptInvoker.execute_script_and_read_stdout(SCRIPT_PATH, configuration.json)
     end
   end
