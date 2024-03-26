@@ -17,7 +17,7 @@ describe '#get_from_url' do
     end
 
     it 'raises timeout exceeded using very small value' do
-      expect { Dhalang::PDF.get_from_url("https://www.google.com", { printToPDFTimeout: 1 }) }.to raise_error(DhalangError, "waiting for Page.printToPDF failed: timeout 1ms exceeded")
+      expect { Dhalang::PDF.get_from_url("https://www.google.com", { printToPDFTimeout: 1 }) }.to raise_error(DhalangError, "Timed out after waiting 1ms")
     end
 
     it 'raises DhalangError on unknown domain' do
