@@ -1,15 +1,15 @@
 module Dhalang
-  # Allows consumers of this library to scrape webpages with Puppeteer.
+  # Provides functionality for scraping webpages.
   class Scraper
     SCRIPT_PATH = File.expand_path('../js/scraper.js', __FILE__).freeze
     private_constant :SCRIPT_PATH
     
-    # Scrapes the content of the webpage under the given url.
+    # Scrapes content under the given url.
     #
-    # @param  [String] url      The url to get as PDF.
+    # @param  [String] url      Url to scrape.
     # @param  [Hash]   options  User configurable options.
     #
-    # @return [String] The html content of the page.
+    # @return [String] Scraped HTML content.
     def self.scrape(url, options = {})
       UrlUtils.validate(url)
       configuration = Configuration.new(url, options)

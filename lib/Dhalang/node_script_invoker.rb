@@ -1,12 +1,9 @@
 module Dhalang
   class NodeScriptInvoker
 
-    # Launches a new Node process, executing the (Puppeteer) script under the given script_path.
+    # Executes JS script under given script_path by launching a new Node process.
     #
-    # @param [String] page_url              The url to pass to the goTo method of Puppeteer.
-    # @param [String] script_path           The absolute path of the JS script to execute.
-    # @param [String] temp_file_path        The absolute path of the temp file to use to write any actions from Puppeteer.
-    # @param [String] temp_file_extension   The extension of the temp file.
+    # @param [String] script_path           Absolute path of the JS script to execute.
     # @param [Object] options               Set of options to use, configurable by the user.
     def self.execute_script(script_path, configuration)
       command = create_node_command(script_path, configuration)
@@ -20,13 +17,13 @@ module Dhalang
       end
     end
 
-    # Launches a new Node process, executing the (Puppeteer) script under the given script_path.
-    # Returning received stdout
+    # Executes JS script under given script_path by launching a new Node process. Once script is finished returns
+    # received stdout.
     #
     # @param [String] script_path           The absolute path of the JS script to execute.
     # @param [Object] configuration         Set of options to use, configurable by the user.
     #
-    # @return [String] Content of the page.
+    # @return [String] stdout received from script.
     def self.execute_script_and_read_stdout(script_path, configuration)
       command = create_node_command(script_path, configuration)
       Open3.popen3(command) do |_stdin, stdout, stderr, wait|
@@ -42,8 +39,8 @@ module Dhalang
 
     # Returns a [String] with the node command to invoke the provided script with the configuration.
     #
-    # @param [String] script_path           The absolute path of the JS script to execute.
-    # @param [Object] configuration         Set of options to use, configurable by the user.
+    # @param [String] script_path           Absolute path of JS script to invoke.
+    # @param [Object] configuration         JSON with options to use for Puppeteer.
     private_class_method def self.create_node_command(script_path, configuration)
       "node #{script_path} #{Shellwords.escape(configuration)}"
     end
