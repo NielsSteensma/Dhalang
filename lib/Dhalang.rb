@@ -1,6 +1,7 @@
 module Dhalang
   require_relative 'PDF'
   require_relative 'Screenshot'
+  require_relative 'Scraper'
   require_relative 'Dhalang/version'
   require_relative 'Dhalang/url_utils'
   require_relative 'Dhalang/file_utils'
