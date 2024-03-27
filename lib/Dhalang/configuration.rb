@@ -55,9 +55,9 @@ module Dhalang
     private attr_accessor :screenshot_options
     private attr_accessor :jpeg_options
 
-    # @param [Hash]   custom_options               Changes that should override default.
+    # @param [Hash]   custom_options        Changes that override default.
     # @param [String] page_url              Url for Puppeteer to visit.
-    # @param [String] temp_file_path        Absolute path of temp file to write results of scripts towards.
+    # @param [String] temp_file_path        Absolute path of temp file to use for writing script results.
     #                                       Can be nil for scripts using stdout.
     # @param [String] temp_file_extension   Extension of temp file. Can be nil for scripts using stdout.
     def initialize(custom_options, page_url, temp_file_path = nil, temp_file_extension = nil)
