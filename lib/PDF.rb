@@ -36,14 +36,15 @@ module Dhalang
     
     # Groups and executes the logic for creating a PDF of a webpage.
     #
+    # @param  [String]  url      The url to create a PDF for.
     # @param  [Hash]    options  Set of options to use, passed by the user of this library.
     #
     # @return [String] The PDF that was created as binary.
     private_class_method def self.get(url, options)
       temp_file = FileUtils.create_temp_file("pdf")
       begin
-        configuration = Configuration.new(url, temp_file.path, "pdf", options)
-        NodeScriptInvoker.execute_script(SCRIPT_PATH, configuration.json)
+        configuration = Configuration.new(options, url, temp_file.path, "pdf")
+        NodeScriptInvoker.execute_script(SCRIPT_PATH, configuration)
         binary_pdf_content = FileUtils.read_binary(temp_file.path)
       ensure
         FileUtils.delete(temp_file)

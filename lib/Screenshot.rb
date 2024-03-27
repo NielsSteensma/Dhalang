@@ -30,7 +30,7 @@ module Dhalang
       get_from_url(url, :png, options)
     end
 
-    # Captures a screenshot of the webpage under the given url.
+    # Captures ascreenshot of the webpage under the given url.
     #
     # @param  [String] url        The url to take a screenshot of.
     # @param  [String] image_type The image type (JPEG/PNG/WEBP) to use for storing the screenshot.
@@ -43,9 +43,9 @@ module Dhalang
       validate_options(options)
 
       temp_file = FileUtils.create_temp_file(image_type)
-      configuration = Configuration.new(url, temp_file.path, image_type, options)
       begin
-        NodeScriptInvoker.execute_script(SCRIPT_PATH, configuration.json)
+        configuration = Configuration.new(options, url, temp_file.path, image_type)
+        NodeScriptInvoker.execute_script(SCRIPT_PATH, configuration)
         binary_image_content = FileUtils.read_binary(temp_file.path)
       ensure
         FileUtils.delete(temp_file)
