@@ -1,9 +1,9 @@
 module Dhalang
   # Allows consumers of this library to take screenshots with Puppeteer. 
   class Screenshot
-    PUPPETEER_SCRIPT_PATH = File.expand_path('../js/screenshot-generator.js', __FILE__).freeze
+    SCRIPT_PATH = File.expand_path('../js/screenshot-generator.js', __FILE__).freeze
     IMAGE_TYPES = [:jpeg, :png, :webp].freeze
-    private_constant :PUPPETEER_SCRIPT_PATH
+    private_constant :SCRIPT_PATH
     private_constant :IMAGE_TYPES
     
     # <b>DEPRECATED:</b> Please use `get_from_url(url, :jpeg)` instead.
@@ -44,7 +44,8 @@ module Dhalang
 
       temp_file = FileUtils.create_temp_file(image_type)
       begin
-        Puppeteer.visit(url, PUPPETEER_SCRIPT_PATH, temp_file.path, image_type, options)
+        configuration = Configuration.new(options, url, temp_file.path, image_type)
+        NodeScriptInvoker.execute_script(SCRIPT_PATH, configuration)
         binary_image_content = FileUtils.read_binary(temp_file.path)
       ensure
         FileUtils.delete(temp_file)
