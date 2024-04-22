@@ -11,6 +11,7 @@ module Dhalang
     #
     # @return [String] Scraped HTML content.
     def self.html(url, options = {})
+      UrlUtils.validate(url)
       temp_file = FileUtils.create_temp_file("html")
       begin
         configuration = Configuration.new(options, url, temp_file.path, "html")
