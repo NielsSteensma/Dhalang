@@ -5,9 +5,10 @@
 
 
 ## Features
-* Generate PDFs from pages
-* Generate PDFs from html ( external images/stylesheets supported )  
-* Capture a screenshot of a webpage
+* Generate PDFs from webpages
+* Generate PDFs from HTML ( external images/stylesheets supported )  
+* Capture screenshots from webpages
+* Scrape HTML from webpages
 
 
 
@@ -26,37 +27,42 @@ Install puppeteer in your application's root directory:
 
 <sub>Dhalang and Puppeteer require Node ≥ 18 and Puppeteer ≥ 22</sub>
 ## Usage
-__Get a PDF of a website url__  
+__PDF of a website url__  
 ```ruby
 Dhalang::PDF.get_from_url("https://www.google.com")
 ```
 It is important to pass the complete url, leaving out https://, http:// or www. will result in an error.
 
-__Get a PDF of a HTML string__  
+__PDF of a HTML string__  
 ```ruby
 Dhalang::PDF.get_from_html("<html><head></head><body><h1>examplestring</h1></body></html>") 
 ```
 
-__Get a PNG screenshot of a website__  
+__PNG screenshot of a website__  
 ```ruby
 Dhalang::Screenshot.get_from_url("https://www.google.com", :png)  
 ```
 
-__Get a JPEG screenshot of a website__  
+__JPEG screenshot of a website__  
 ```ruby
 Dhalang::Screenshot.get_from_url("https://www.google.com", :jpeg)  
 ```
 
-__Get a WEBP screenshot of a website__  
+__WEBP screenshot of a website__  
 ```ruby
 Dhalang::Screenshot.get_from_url("https://www.google.com", :webp)  
 ```
 
-All methods return a string containing the PDF or JPEG/PNG/WEBP in binary.   
+__HTML of a website__
+```ruby
+Dhalang::Scraper.html("https://www.google.com")  
+```
+
+Above methods either return a string containing the PDF/JPEG/PNG/WEBP in binary or the scraped HTML.   
   
   
   
-## Custom PDF/screenshot options
+## Custom options
 To override the default options that are set by Dhalang you can pass as last argument a hash with the custom options you want to set.
 
 For example to set custom margins for PDFs:
