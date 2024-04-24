@@ -17,6 +17,7 @@ module Dhalang
       end
     end
 
+
     # Returns a [String] with node command that invokes the provided script with the configuration.
     #
     # @param [String] script_path           Absolute path of JS script to invoke.
