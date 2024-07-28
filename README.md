@@ -11,7 +11,11 @@
 * Scrape HTML from webpages
 
 
-
+## Prerequisites
+* Node ≥ 18
+* Puppeteer ≥ 22
+* Unix shell ( Dhalang will not work on Windows shells )
+  
 ## Installation
 Add this line to your application's Gemfile:
 
@@ -25,7 +29,6 @@ Install puppeteer in your application's root directory:
 
     $ npm install puppeteer
 
-<sub>Dhalang and Puppeteer require Node ≥ 18 and Puppeteer ≥ 22</sub>
 ## Usage
 __PDF of a website url__  
 ```ruby
