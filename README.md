@@ -25,9 +25,11 @@ And then execute:
 
     $ bundle update
 
-Install puppeteer in your application's root directory:
+Install puppeteer or puppeteer-core in your application's root directory:
 
-    $ npm install puppeteer
+    $ npm install puppeteer 
+    or
+    $ npm install puppeteer-core
 
 ## Usage
 __PDF of a website url__  
@@ -89,18 +91,10 @@ A list of all possible screenshot options that can be set, can be found at: http
 >
 > For example: `Dhalang::PDF.get_from_url("https://www.google.com", {headerTemplateFile: '/tmp/header.html', footerTemplateFile: '/tmp/footer.html'})`
 
-
-## Custom user options
-You may want to change the way Dhalang interacts with Puppeteer in general. User options can be set by providing them in a hash as last argument to any calls you make to the library. Are you setting both custom PDF and user options? Then they should be passed as a single hash. 
-
-For example to set a custom navigation timeout:
-```ruby
-Dhalang::Screenshot.get_from_url("https://www.google.com", :jpeg, {navigationTimeout: 20000})  
-```
-
-Below table lists all possible configuration parameters that can be set:
+Below table lists more configuration parameters that can be set:
 | Key                | Description                                                                             | Default                         |
 |--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
+| browserWebsocketUrl | Websocket url of remote chromium browser to use                                        | None                            |
 | navigationTimeout  | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
 | printToPDFTimeout  | Amount of milliseconds until Puppeteer while timeout when calling Page.printToPDF       | 0 (unlimited)                   |
 | navigationWaitForSelector | If set, Dhalang will wait for the specified selector to appear before creating the screenshot or PDF | None        |

@@ -3,6 +3,7 @@ module Dhalang
   class Configuration
     NODE_MODULES_PATH = Dir.pwd + '/node_modules/'.freeze
     USER_OPTIONS = {
+      browserWebsocketUrl: '',
       navigationTimeout: 10000,
       printToPDFTimeout: 0, # unlimited
       navigationWaitUntil: 'load',
@@ -48,6 +49,7 @@ module Dhalang
     private_constant :DEFAULT_JPEG_OPTIONS
 
     private attr_accessor :page_url
+    private attr_accessor :browser_websocket_url
     private attr_accessor :temp_file_path
     private attr_accessor :temp_file_extension
     private attr_accessor :user_options
