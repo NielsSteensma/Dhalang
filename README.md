@@ -88,7 +88,7 @@ A list of all possible screenshot options that can be set, can be found at: http
 >
 > For example: `Dhalang::PDF.get_from_url("https://www.google.com", {headerTemplateFile: '/tmp/header.html', footerTemplateFile: '/tmp/footer.html'})`
 
-Below table lists a more configuration parameters that can be set:
+Below table lists more configuration parameters that can be set:
 | Key                | Description                                                                             | Default                         |
 |--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
 | browserWebsocketUrl | Websocket url of remote chromium browser to use                                        | None                            |
