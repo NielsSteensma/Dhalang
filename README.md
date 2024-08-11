@@ -25,7 +25,7 @@ And then execute:
 
     $ bundle update
 
-Install puppeteer or puppeteer-core are supported in your application's root directory:
+Install puppeteer or puppeteer-core in your application's root directory:
 
     $ npm install puppeteer 
     or
