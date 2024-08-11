@@ -1,4 +1,4 @@
-# Dhalang [![Build](https://github.com/NielsSteensma/Dhalang/actions/workflows/build.yml/badge.svg)](https://github.com/NielsSteensma/Dhalang/actions/workflows/build.yml)
+# Dhalang [![Build](https://github.com/NielsSteensma/Dhalang/actions/workflows/build.yml/badge.svg)](https://github.com/NielsSteensma/Dhalang/actions/workflows/build.yml) [![Gem Version](https://badge.fury.io/rb/Dhalang.svg)](https://badge.fury.io/rb/Dhalang)
 
 > Dhalang is a Ruby wrapper for Google's Puppeteer.
 
@@ -11,7 +11,11 @@
 * Scrape HTML from webpages
 
 
-
+## Prerequisites
+* Node ≥ 18
+* Puppeteer ≥ 22
+* Unix shell ( Dhalang will not work on Windows shells )
+  
 ## Installation
 Add this line to your application's Gemfile:
 
@@ -27,7 +31,6 @@ Install puppeteer or puppeteer-core are supported in your application's root dir
     or
     $ npm install puppeteer-core
 
-<sub>Dhalang and Puppeteer require Node ≥ 18 and Puppeteer ≥ 22</sub>
 ## Usage
 __PDF of a website url__  
 ```ruby
