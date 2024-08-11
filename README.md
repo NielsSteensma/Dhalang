@@ -98,6 +98,7 @@ Dhalang::Screenshot.get_from_url("https://www.google.com", :jpeg, {navigationTim
 Below table lists all possible configuration parameters that can be set:
 | Key                | Description                                                                             | Default                         |
 |--------------------|-----------------------------------------------------------------------------------------|---------------------------------|
+| browserWebsocketUrl | Websocket url of remote chromium browser to use 
 | navigationTimeout  | Amount of milliseconds until Puppeteer while timeout when navigating to the given page  | 10000                           |
 | printToPDFTimeout  | Amount of milliseconds until Puppeteer while timeout when calling Page.printToPDF       | 0 (unlimited)                   |
 | navigationWaitForSelector | If set, Dhalang will wait for the specified selector to appear before creating the screenshot or PDF | None        |
