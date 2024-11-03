@@ -80,10 +80,9 @@ For example to only take a screenshot of the visible part of the page:
 Dhalang::Screenshot.get_from_url("https://www.google.com", :webp, {fullPage: false})
 ```
 
-A list of all possible PDF options that can be set, can be found at: https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagepdfoptions
+A list of all possible PDF options that can be set, can be found at: https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md
 
-A list of all possible screenshot options that can be set, can be found at: https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#pagescreenshotoptions
-
+A list of all possible screenshot options that can be set, can be found at: https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.screenshotoptions.md
 > The default Puppeteer options contain the options `headerTemplate` and `footerTemplate`. Puppeteer expects these to be HTML strings. By default, the Dhalang
 > gem passes all options as arguments in a `node ...` shell command.  In case the HTML strings are too long they might surpass the maximum
 > argument length of the host.  For example, on Linux the `MAX_ARG_LEN` is 128kB. Therefore, you can also pass the headers and footers as file path using the
