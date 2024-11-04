@@ -14,7 +14,8 @@ module Dhalang
       viewPort: '',
       httpAuthenticationCredentials: '',
       isAutoHeight: false,
-      chromeOptions: []
+      chromeOptions: [],
+      slowMo: 0
     }.freeze
     DEFAULT_PDF_OPTIONS = {
       scale: 1,
