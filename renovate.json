@@ -8,6 +8,7 @@
       "matchPackageNames": ["puppeteer"],
       "commitMessageAction": "Test against",
       "commitMessageTopic": "{{depName}}",
+      "commitMessageExtra": "{{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}"
       "automerge": true,
       "autoApprove": true
     }
