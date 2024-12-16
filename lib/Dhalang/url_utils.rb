@@ -6,9 +6,10 @@ module Dhalang
         #
         # @param [String] url The url to validate
         def self.validate(url)
-            if (url !~ URI::DEFAULT_PARSER.regexp[:ABS_URI])
-                raise URI::InvalidURIError, 'The given url was invalid, use format http://www.example.com'
-            end
+            parsed = URI.parse(url) # Raise URI::InvalidURIError on invalid URLs
+            return true if parsed.absolute?
+
+            raise URI::InvalidURIError, 'The given url was invalid, use format http://www.example.com'
         end
     end
 end
