@@ -1,6 +1,7 @@
 module Dhalang
   # Groups Puppeteer and Dhalang configuration.
   class Configuration
+    NODE_MODULES_PATH = Dir.pwd + '/node_modules/'.freeze
     USER_OPTIONS = {
       browserWebsocketUrl: '',
       navigationTimeout: 10000,
@@ -42,6 +43,7 @@ module Dhalang
       quality: 100
     }.freeze
 
+    private_constant :NODE_MODULES_PATH
     private_constant :USER_OPTIONS
     private_constant :DEFAULT_PDF_OPTIONS
     private_constant :DEFAULT_SCREENSHOT_OPTIONS
@@ -76,6 +78,7 @@ module Dhalang
       return {
         webPageUrl: page_url,
         tempFilePath: temp_file_path,
+        puppeteerPath: NODE_MODULES_PATH,
         imageType: temp_file_extension,
         userOptions: user_options.to_h,
         pdfOptions: pdf_options.to_h,
