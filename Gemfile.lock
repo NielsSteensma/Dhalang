@@ -1,15 +1,15 @@
 PATH
   remote: .
   specs:
-    Dhalang (0.7.2)
+    Dhalang (0.8.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.1.1)
     afm (0.2.2)
-    bigdecimal (3.1.8)
-    diff-lcs (1.5.1)
+    bigdecimal (3.3.1)
+    diff-lcs (1.6.2)
     fastimage (2.2.7)
     hashery (2.1.2)
     pdf-reader (2.9.2)
@@ -19,19 +19,19 @@ GEM
       ruby-rc4
       ttfunk
     rake (13.0.6)
-    rspec (3.13.0)
+    rspec (3.13.2)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.2)
+    rspec-core (3.13.6)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.3)
+    rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.2)
+    rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-support (3.13.2)
+    rspec-support (3.13.7)
     ruby-rc4 (0.1.5)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
