@@ -12,11 +12,10 @@ GEM
     diff-lcs (1.6.2)
     fastimage (2.2.7)
     hashery (2.1.2)
-    pdf-reader (2.9.2)
-      Ascii85 (~> 1.0)
-      afm (~> 0.2.1)
+    pdf-reader (2.16.0)
+      Ascii85 (>= 1.0, < 3.0, != 2.0.0)
+      afm (>= 0.2.1, < 2)
       hashery (~> 2.0)
-      ruby-rc4
       ttfunk
     rake (13.0.6)
     rspec (3.13.2)
@@ -32,7 +31,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.7)
-    ruby-rc4 (0.1.5)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
 
@@ -44,7 +42,7 @@ DEPENDENCIES
   Dhalang!
   bundler (~> 2.3.6)
   fastimage (~> 2.2.6)
-  pdf-reader (~> 2.9.0)
+  pdf-reader (~> 2.16.0)
   rake (~> 13.0.6)
   rspec (~> 3.0)
 
