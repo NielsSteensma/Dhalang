@@ -10,7 +10,7 @@ GEM
     afm (0.2.2)
     bigdecimal (3.3.1)
     diff-lcs (1.6.2)
-    fastimage (2.2.7)
+    fastimage (2.4.3)
     hashery (2.1.2)
     pdf-reader (2.9.2)
       Ascii85 (~> 1.0)
@@ -43,7 +43,7 @@ PLATFORMS
 DEPENDENCIES
   Dhalang!
   bundler (~> 2.3.6)
-  fastimage (~> 2.2.6)
+  fastimage (~> 2.4.0)
   pdf-reader (~> 2.9.0)
   rake (~> 13.0.6)
   rspec (~> 3.0)
